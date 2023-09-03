@@ -1,0 +1,81 @@
+@font-face {
+	font-family: 'reckless';
+	src: url('resources/reckless.otf');
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: 'reckless', sans-serif;
+	font-size: 20px;
+}
+
+body {
+	background: #FFF59D;
+}
+
+.header {
+	background-color: #1B3039;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	height: 85px;
+	padding: 5px 10%;
+}
+
+.header .logo {
+	cursor: pointer;
+	margin-right: auto;
+}
+
+.header .logo img {
+	height: 70px;
+	width: auto;
+	transition: all 0.3s;
+}
+
+.header .logo img:hover {
+	transform: scale(1.2);
+}
+
+.header .nav-links {
+	list-style: none;
+}
+
+.header .nav-links li {
+	display: inline-block;
+	padding: 0px 20px;
+}
+
+.header .nav-links li:hover {
+	transform: scale(1.1);
+}
+
+.header .nav-links a {
+	font-size: 700;
+	color: #ECEFF1;
+	text-decoration: none;
+}
+
+.header .nav-links li a:hover {
+	color: #FFF28C;
+}
+
+.header .btn button {
+	margin-left: 20px;
+	font-weight: 700;
+	color: #1B3039;
+	padding: 9px 25px;
+	background: #ECEFF1;
+	border: none;
+	border-radius: 50px;
+	cursor: pointer;
+	transition: all 0.3s ease 0s;
+}
+
+.header .btn button:hover {
+	background-color: #E2F1F8;
+	color: #FFBC0E;
+	transform: scale(1.1);
+}

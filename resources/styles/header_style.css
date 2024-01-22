@@ -1,6 +1,6 @@
 @font-face {
 	font-family: 'reckless';
-	src: url('resources/fonts/reckless.otf');
+	src: url('../fonts/reckless.otf');
 }
 
 * {

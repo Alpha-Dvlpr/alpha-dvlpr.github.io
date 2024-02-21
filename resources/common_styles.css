@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'Monaco';
+    font-style: normal;
+    font-weight: normal;
+    src: local('Monaco'), url('Monaco.woff') format('woff');
+}
+
+body {
+	background: #FFF59D;
+}
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: 'Monaco', sans-serif;
+	font-size: 20px;
+}
+
+.container {
+    margin: 24px;
+    border-radius: 24px;
+    background-color: #ECEFF1;
+    padding: 12px;
+}
+
+.head_1 {
+    font-size: 16px;
+    text-align: center;
+} 

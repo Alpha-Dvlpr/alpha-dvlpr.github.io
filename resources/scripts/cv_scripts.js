@@ -30,7 +30,7 @@ function setAbout() {
     En esta web podrás ver en detalle mi experiencia laboral y descargar mi CV actualizado en formato PDF, ver todas mis titulaciones \
     y contactarme para cualquier cosa. \n\n\
     También enlaces a otras páginas que he desarrollado. \n\n\
-    La web la he realizado yo enteramente aplicando mis conocimientos en desarrollo web. \
+    La web la he realizado yo enteramente aplicando mis conocimientos en desarrollo web pero pretendiendo que sea sencilla. \
     ".replaceAll("\n", "</br>")
 }
 

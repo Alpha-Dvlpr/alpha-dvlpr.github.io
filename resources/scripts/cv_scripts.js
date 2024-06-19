@@ -31,7 +31,7 @@ function setAbout() {
     y contactarme para cualquier cosa. \n\n\
     También enlaces a otras páginas que he desarrollado. \n\n\
     La web la he realizado yo enteramente aplicando mis conocimientos en desarrollo web pero pretendiendo que sea sencilla. \
-    ".replaceAll("\n", "</br>")
+    ".replaceAll("\n", "</br>");
 }
 
 function setQualifs() {
@@ -39,9 +39,27 @@ function setQualifs() {
 }
 
 function setJobs() {
+    document.getElementsByClassName("knowmad_mood")[0].innerHTML = "\
+    DESARROLLADOR iOS | KNOWMADMOOD | ABRIL 2023 -> HOY \n\n\
+    Desarrollos nuevos y mantenimiento de los existentes con Swift, UIKit y Storyboards. \n\n\
+    Git, GitLab, Merge Requests, Figma, AppStore Connect, TestFlight. \
+    ".replaceAll("\n", "</br>");
 
-}
+    document.getElementsByClassName("telynet")[0].innerHTML = "\
+    DESARROLLADOR iOS | TELYNET | MAYO 2022 -> ABRIL 2023 \n\n\
+    Desarrollos desde cero para diversos clientes en SwiftUI. \n\n\
+    Subversion, SQLite. \
+    ".replaceAll("\n", "</br>");
 
-function setContact() {
-    
+    document.getElementsByClassName("minsait")[0].innerHTML = "\
+    DESARROLLADOR iOS | MINSAIT (INDRA) | JUNIO 2021 -> ABRIL 2022 \n\n\
+    Desarrollos nuevos y mantenimiento de los existentes con Swift, UIKit y Storiboards. \n\n\
+    Git, Jenkins, Merge Requests, Zeplin. \
+    ".replaceAll("\n", "</br>");
+
+    document.getElementsByClassName("zimaltec")[0].innerHTML = "\
+    DESARROLLADOR iOS | ZIMALTEC SOLUCIONES | JUNIO 2020 -> JUNIO 2021 \n\n\
+    Desarrollos nuevos y mantenimiento de los existentes con Swift, UIKit y Storyboards. \n\n\
+    Git, Merge Requests, Realm Database, AppStore Connect, TestFlight. \
+    ".replaceAll("\n", "</br>");
 }

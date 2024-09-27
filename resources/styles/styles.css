@@ -72,12 +72,22 @@ body {
 	background-color: #1B3039;
 	text-align: right;
 	padding: 12px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.footer_logo {
+	height: 30px;
+	width: auto;
+	margin-left: 10px;
 }
 
 .footer p {
 	color: #ECEFF1;
 	font-size: 15px;
 	text-decoration: none;
+	margin: 0;
 }
 
 .header {

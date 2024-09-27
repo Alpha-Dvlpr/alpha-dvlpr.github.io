@@ -35,12 +35,40 @@ function setAbout() {
 }
 
 function setQualifs() {
+    document.getElementsByClassName("ciberseguridad")[0].innerHTML = "\
+    EN CURSO | INTECSSA \n\n\
+    Máster en Ciberseguridad Corporativa y Hacking Ético \
+    ".replaceAll("\n", "</br>");
 
+    document.getElementsByClassName("dam")[0].innerHTML = "\
+    JUNIO 2020 | IES ÁGORA \n\n\
+    Grado Superior en Desarrollo de Aplicaciones Multiplataforma \
+    ".replaceAll("\n", "</br>");
+
+    document.getElementsByClassName("ingles")[0].innerHTML = "\
+    JUNIO 2016 | ESCUELA OFICIAL DE IDIOMAS DE PLASENCIA \n\n\
+    Inglés B2 \
+    ".replaceAll("\n", "</br>");
+
+    document.getElementsByClassName("frances")[0].innerHTML = "\
+    JUNIO 2015 | ESCUELA OFICIAL DE IDIOMAS DE PLASENCIA \n\n\
+    Francés B1 \
+    ".replaceAll("\n", "</br>");
+
+    document.getElementsByClassName("fundae")[0].innerHTML = "\
+    MAYO 2022 | IT FORMACIÓN Y SERVICIOS \n\n\
+    Desarrollo SQLite \
+    ".replaceAll("\n", "</br>");
+
+    document.getElementsByClassName("it_institute")[0].innerHTML = "\
+    OCTUBRE 2021 | IT INSTITUTE \n\n\
+    Metodologías Ágiles de Desarrollo \
+    ".replaceAll("\n", "</br>");
 }
 
 function setJobs() {
     document.getElementsByClassName("knowmad_mood")[0].innerHTML = "\
-    DESARROLLADOR iOS | KNOWMADMOOD | ABRIL 2023 -> HOY \n\n\
+    DESARROLLADOR iOS | KNOWMADMOOD | ABRIL 2023 -> SEPTIEMBRE 2024 \n\n\
     Desarrollos nuevos y mantenimiento de los existentes con Swift, UIKit y Storyboards. \n\n\
     Git, GitLab, Merge Requests, Figma, AppStore Connect, TestFlight. \
     ".replaceAll("\n", "</br>");

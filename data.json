@@ -1,0 +1,226 @@
+{
+    "profile": {
+        "image": "./img/my_image.jpg",
+        "description": "Hola, soy Aarón Granado, tengo 27 años y vivo en Asturias. \n\nEstudié Desarrollo de Aplicaciones Multiplataforma y decidí enfocar mi carrera en iOS, aprendiendo Swift y Xcode con tutoriales y cursos online. \n\nComencé mi trayectoria profesional en Zaragoza como desarrollador iOS, trabajando en remoto al principio y luego presencialmente. \n\nHe participado en proyectos nativos de iOS y tvOS para GPVs, telecomunicaciones y VoD, algunos completamente en SwiftUI, tecnología que sigo perfeccionando a día de hoy.\n\nEn esta web puedes explorar mi experiencia laboral, ver mis proyectos personales, consultar mis titulaciones y contactarme.",
+        "chips": [
+            {
+                "name": "Experiencia",
+                "destination": "./main_pages/experience.html"
+            },
+            {
+                "name": "Titulaciones",
+                "destination": "./main_pages/studies.html"
+            },
+            {
+                "name": "Contacto",
+                "destination": "./main_pages/contact.html"
+            }
+        ],
+        "others": {
+            "title": "Mis proyectos",
+            "projects": []
+        }
+    },
+    "jobs": {
+        "title": "Mi experiencia laboral",
+        "items": [
+            {
+                "title": "Desarrollador iOS",
+                "start_date": "Mayo 2025",
+                "end_date": "Actualidad",
+                "company": "Alten Spain",
+                "description": "Desarrollo de aplicaciones iOS para cliente del sector medios de comunicación, trabajando en app nativa con millones de usuarios activos.",
+                "contributions": {
+                    "title": "🔹 Responsabilidades",
+                    "elements": [
+                        "Desarrollo y mantenimiento de features en aplicación de alto tráfico con UIKit",
+                        "Implementación de nuevas funcionalidades siguiendo especificaciones de diseño en Figma",
+                        "Resolución de bugs críticos y optimización de rendimiento en vistas complejas",
+                        "Colaboración con equipos backend y QA en sprints ágiles mediante JIRA",
+                        "Participación en code reviews para mantener estándares de calidad del código",
+                        "Resolución de Memory Leaks que causan crashes críticos en la aplicación"
+                    ]
+                },
+                "tech_stack": [
+                    "Swift",
+                    "UIKit",
+                    "Git",
+                    "Figma",
+                    "JIRA",
+                    "CI/CD",
+                    "Charles Proxy",
+                    "App Store Connect"
+                ],
+                "img": "../img/alten_spain.jpeg"
+            },
+            {
+                "title": "Desarrollador iOS",
+                "start_date": "Diciembre 2024",
+                "end_date": "Abril 2025",
+                "company": "Vipirsa",
+                "description": "Rediseño de aplicación iOS en proyecto bancario de duración cerrada, con enfoque en entregas rápidas y calidad de código.",
+                "contributions": {
+                    "title": "🔹 Contribuciones",
+                    "elements": [
+                        "Implementé features críticas cumpliendo deadlines ajustados sin comprometer estabilidad",
+                        "Colaboré estrechamente con diseñadores usando Figma para implementación pixel-perfect",
+                        "Migré componentes críticos relacionados con la seguridad de la aplicación: códigos OTP, autorización con FaceID / TouchID",
+                        "Colaboré en la gestión y organización de las tareas reduciendo el tiempo de asignación de las mismas y su tiempo de resolución"
+                    ]
+                },
+                "tech_stack": [
+                    "Swift",
+                    "SwiftUI",
+                    "MVVM",
+                    "Git",
+                    "CI/CD",
+                    "JIRA",
+                    "Figma",
+                    "App Store Connect"
+                ],
+                "img": "../img/vipirsa.png"
+            },
+            {
+                "title": "Descanso profesional",
+                "start_date": "Septiembre 2024",
+                "end_date": "Diciembre 2024",
+                "company": "",
+                "description": "Período de formación y búsqueda de nuevos retos profesionales.",
+                "tech_stack": [],
+                "img": "../img/break-time.jpg"
+            },
+            {
+                "title": "Desarrollador iOS",
+                "start_date": "Abril 2023",
+                "end_date": "Septiembre 2024",
+                "company": "Knowmadd Mood",
+                "description": "Desarrollos nuevos y mantenimiento de los existentes con Swift, UIKit y Storyboards.",
+                "contributions": {
+                    "title": "🔹 Logros destacados",
+                    "elements": [
+                        "Supervisé code reviews para un equipo de 4-6 desarrolladores, reduciendo incidencias en QA en más del 50%",
+                        "Creación de componentes SwiftUI integrados en código UIKit (widget en la pantalla de inicio para mostrar novedades)",
+                        "Implementé mejoras de rendimiento que optimizaron tiempos de carga en un 30-40%"
+                    ]
+                },
+                "tech_stack": [
+                    "Git",
+                    "GitLab",
+                    "Merge Requests",
+                    "Figma",
+                    "AppStore Connect",
+                    "TestFlight"
+                ],
+                "img": "../img/knowmad_mood.jpg"
+            },
+            {
+                "title": "Desarrollador iOS",
+                "start_date": "Mayo 2022",
+                "end_date": "Abril 2023",
+                "company": "Telynet",
+                "description": "Desarrollos desde cero para diversos clientes en SwiftUI.",
+                "tech_stack": [
+                    "Subversion",
+                    "SQLite"
+                ],
+                "img": "../img/telynet.jpg"
+            },
+            {
+                "title": "Desarrollador iOS",
+                "start_date": "Junio 2021",
+                "end_date": "Abril 2022",
+                "company": "Minsait (Indra)",
+                "description": "Desarrollos nuevos y mantenimiento de los existentes con Swift, UIKit y Storyboards.",
+                "tech_stack": [
+                    "Git",
+                    "Jenkins",
+                    "Merge Requests",
+                    "Zeplin"
+                ],
+                "img": "../img/minsait.png"
+            },
+            {
+                "title": "Desarrollador iOS",
+                "start_date": "Junio 2020",
+                "end_date": "Junio 2021",
+                "company": "Zimaltec Soluciones",
+                "description": "Desarrollos nuevos y mantenimiento de los existentes con Swift, UIKit y Storyboards.",
+                "tech_stack": [
+                    "Git",
+                    "Merge Requests",
+                    "Realm Database",
+                    "AppStore Connect",
+                    "TestFlight"
+                ],
+                "img": "../img/zimaltec.jpg"
+            }
+        ]
+    },
+    "studies": {
+        "title": "Mis titulaciones",
+        "regular": {
+            "title": "Formación reglada",
+            "elements": [
+                {
+                    "title": "Máster en Ciberseguridad Corporativa y Hacking Ético",
+                    "date": "Diciembre 2024",
+                    "company": "INTECSSA",
+                    "img": "../img/intecssa.jpg"
+                },
+                {
+                    "title": "Grado Superior en Desarrollo de Aplicaciones Multiplataforma",
+                    "date": "Junio 2020",
+                    "company": "IES ÁGORA (Cáceres)",
+                    "img": "../img/ies_agora.jpg"
+                },
+                {
+                    "title": "Inglés B2",
+                    "date": "Junio 2016",
+                    "company": "Escuela Ofificla de Idiomas (Plasencia, Cáceres)",
+                    "img": "../img/eoi_plasencia.png"
+                },
+                {
+                    "title": "Francés B1",
+                    "date": "Junio 2015",
+                    "company": "Escuela Ofificla de Idiomas (Plasencia, Cáceres)",
+                    "img": "../img/eoi_plasencia.png"
+                }
+            ]
+        },
+        "nonRegular": {
+            "title": "Formación no reglada",
+            "elements": [
+                {
+                    "title": "Desarrollo SQLite",
+                    "date": "Mayo 2022",
+                    "company": "IT Formación y Servicios",
+                    "img": "../img/fundae.png"
+                },
+                {
+                    "title": "Metodologías Ágiles de Desarrollo",
+                    "date": "Octubre 2021",
+                    "company": "IT Institute",
+                    "img": "../img/it_institute.png"
+                }
+            ]
+        }
+    },
+    "contact": {
+        "title": "Contacto",
+        "description": "Aquí podrás encontrar los diferentes medios para ponerte en contacto conmigo.",
+        "elements": [
+            {
+                "name": "WhatsApp",
+                "destination": "https://wa.me/34692263029"
+            },
+            {
+                "name": "Email",
+                "destination": "mailto:aarongranado98@gmail.com"
+            },
+            {
+                "name": "LinkedIn",
+                "destination": "https://www.linkedin.com/in/aaron-granado-amores/"
+            }
+        ]
+    }
+}

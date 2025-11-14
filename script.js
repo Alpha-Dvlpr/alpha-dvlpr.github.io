@@ -431,8 +431,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     });
 
-    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
-    backBtn.addEventListener('click', () => window.history.back());
+    if (scrollTopBtn) scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    if (backBtn) backBtn.addEventListener('click', () => window.history.back());
 
     if (translateButton) {
         translateButton.addEventListener('click', (e) => {

@@ -1,4 +1,4 @@
-// Carga datos desde data.json y genera los bloques
+/* --- DATA RETRIEVING --- */
 async function fetchData() {
     try {
         const basePath = window.location.pathname.includes('main_pages') ? '../' : '';
@@ -18,9 +18,11 @@ async function loadHomeData() {
     // Bloque principal
     const profilePic = document.getElementById('profile-pic');
     const descriptionBlock = document.getElementById('description');
+    const mainTitle = document.getElementById('main-title');
 
     if (profilePic) profilePic.src = data.profile.image;
     if (descriptionBlock) descriptionBlock.textContent = data.profile.description;
+    if (mainTitle) mainTitle.textContent = data.profile.title;
 
     // Bloque de chips principales con acción
     const chipsContainer = document.getElementById('main-chips');
@@ -312,43 +314,136 @@ async function loadContactData() {
     });
 }
 
+/* --- GOOGLE TRANSLATE --- */
+let LANG_OPTIONS = {};
+const PAGE_BASE_LANG = "es";
+
+async function loadLanguages() {
+    const data = await fetchData();
+
+    if (!data || !data.languages) return null;
+
+    LANG_OPTIONS = data.languages;
+}
+
+function loadGoogleTranslate() {
+    if (!window.googleTranslateElementInit) {
+        window.googleTranslateElementInit = function () {
+            new google.translate.TranslateElement(
+                { pageLanguage: PAGE_BASE_LANG, includedLanguages: Object.keys(LANG_OPTIONS).join(','), autoDisplay: false },
+                'google_translate_element'
+            );
+        };
+    }
+
+    const script = document.createElement('script');
+    script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+    document.body.appendChild(script);
+}
+
+function getCurrentLanguage() {
+    const m = document.cookie.match(/(?:^|; )googtrans=([^;]+)/);
+    if (!m) return PAGE_BASE_LANG;
+    const val = decodeURIComponent(m[1]).split('/');
+    return val[2] || PAGE_BASE_LANG;
+}
+
+function setGoogleTranslateCookie(from, to) {
+    const expires = new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString();
+    document.cookie = `googtrans=${encodeURIComponent('/' + from + '/' + to)}; path=/; expires=${expires}; SameSite=Lax`;
+}
+
+function ensureTranslateMenu() {
+    if (document.getElementById('translate-menu')) return;
+
+    const container = document.getElementById('translate-container');
+    if (!container) return;
+
+    const menu = document.createElement('div');
+    menu.id = 'translate-menu';
+    menu.className = 'absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-xl overflow-hidden hidden z-50 border border-gray-200';
+
+    Object.entries(LANG_OPTIONS).forEach(([code, label]) => {
+        const item = document.createElement('button');
+        item.type = 'button';
+        item.className = 'w-full text-left px-3 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors';
+        item.textContent = label;
+        item.dataset.lang = code;
+
+        item.onclick = () => {
+            setGoogleTranslateCookie(PAGE_BASE_LANG, code);
+
+            setTimeout(() => {
+                if (!forceGoogleTranslateTo(code)) location.reload();
+            }, 300);
+        };
+
+        menu.appendChild(item);
+    });
+
+    container.appendChild(menu);
+}
+
+function toggleTranslateMenu() {
+    ensureTranslateMenu();
+    const menu = document.getElementById('translate-menu');
+    if (menu) menu.classList.toggle('hidden');
+}
+
+function forceGoogleTranslateTo(lang) {
+    const iframe = document.querySelector("iframe.goog-te-menu-frame");
+    if (!iframe) return false;
+
+    const inner = iframe.contentDocument || iframe.contentWindow.document;
+    const opts = inner.querySelectorAll(".goog-te-menu2-item span.text");
+
+    for (const el of opts) {
+        if (el.innerText.toLowerCase().includes(LANG_OPTIONS[lang].toLowerCase())) {
+            el.click();
+            return true;
+        }
+    }
+
+    return false;
+}
+
 /* --- PAGE SELECTION --- */
-document.addEventListener('DOMContentLoaded', () => {
-    if (document.getElementById('profile-pic')) {
-        loadHomeData();
+document.addEventListener('DOMContentLoaded', async () => {
+    await loadLanguages();
+    loadGoogleTranslate();
+
+    if (document.getElementById('profile-pic')) loadHomeData();
+    if (document.getElementById('jobs-container')) loadJobsData();
+    if (document.getElementById('studies-container')) loadStudiesData();
+    if (document.getElementById('contact-container')) loadContactData();
+
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+    const backBtn = document.getElementById('backBtn');
+    const translateButton = document.getElementById('translate-btn');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 200) {
+            scrollTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+            scrollTopBtn.classList.add('opacity-100');
+        } else {
+            scrollTopBtn.classList.add('opacity-0', 'pointer-events-none');
+            scrollTopBtn.classList.remove('opacity-100');
+        }
+    });
+
+    scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    backBtn.addEventListener('click', () => window.history.back());
+
+    if (translateButton) {
+        translateButton.addEventListener('click', (e) => {
+            e.stopImmediatePropagation();
+            toggleTranslateMenu();
+        });
+
+        document.addEventListener('click', () => {
+            const menu = document.getElementById('translate-menu');
+
+            if (menu && !menu.classList.contains('hidden')) menu.classList.add('hidden');
+        });
     }
-
-    if (document.getElementById('jobs-container')) {
-        loadJobsData();
-    }
-
-    if (document.getElementById('studies-container')) {
-        loadStudiesData();
-    }
-
-    if (document.getElementById('contact-container')) {
-        loadContactData();
-    }
-});
-
-/* --- BOTONES --- */
-const scrollTopBtn = document.getElementById('scrollTopBtn');
-const backBtn = document.getElementById('backBtn');
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 200) { // cuando se hace scroll hacia abajo
-        scrollTopBtn.classList.remove('opacity-0', 'pointer-events-none');
-        scrollTopBtn.classList.add('opacity-100');
-    } else {
-        scrollTopBtn.classList.add('opacity-0', 'pointer-events-none');
-        scrollTopBtn.classList.remove('opacity-100');
-    }
-});
-
-scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-});
-
-backBtn.addEventListener('click', () => {
-    window.history.back();
 });

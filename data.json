@@ -1,5 +1,6 @@
 {
     "profile": {
+        "title": "Inicio",
         "image": "./img/my_image.jpg",
         "description": "Hola, soy Aarón Granado, tengo 27 años y vivo en Asturias. \n\nEstudié Desarrollo de Aplicaciones Multiplataforma y decidí enfocar mi carrera en iOS, aprendiendo Swift y Xcode con tutoriales y cursos online. \n\nComencé mi trayectoria profesional en Zaragoza como desarrollador iOS, trabajando en remoto al principio y luego presencialmente. \n\nHe participado en proyectos nativos de iOS y tvOS para GPVs, telecomunicaciones y VoD, algunos completamente en SwiftUI, tecnología que sigo perfeccionando a día de hoy.\n\nEn esta web puedes explorar mi experiencia laboral, ver mis proyectos personales, consultar mis titulaciones y contactarme.",
         "chips": [
@@ -222,5 +223,13 @@
                 "destination": "https://www.linkedin.com/in/aaron-granado-amores/"
             }
         ]
+    },
+    "languages": {
+        "es": "Español",
+        "en": "English",
+        "fr": "Français",
+        "it": "Italiano",
+        "de": "Deutsch",
+        "pt": "Português"
     }
 }

@@ -32,7 +32,17 @@
 	</style>
 </head>
 
-<body class="bg-yellow-100 text-gray-900 flex flex-col items-center min-h-screen">
+<body class="bg-yellow-100 flex flex-col items-center min-h-screen">
+
+	<header class="w-full bg-yellow-50 shadow-md p-6 text-center">
+		<h1 id="main-title" class="text-3xl font-semibold"></h1>
+		<div id="translate-container" class="absolute right-6 top-6">
+			<button id="translate-btn"
+				class="bg-white shadow-md text-gray-700 text-sm px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition">
+				🌐 Traducir
+			</button>
+		</div>
+	</header>
 
 	<!-- Bloque principal -->
 	<section id="main"

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width-devide-width, initial-scale=1.0" />
+    <title>Calculadora de impresión 3D</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>💡 Calculadora de Impresión 3D</h1>
+
+    <label>Material:</label>
+    <select id="material">
+        <option value="">Cargando materiales...</option>
+    </select>
+
+    <label>Peso de la pieza (g):</label>
+    <input id="peso" type="number" step="0.01" placeholder="Ej: 120" />
+
+    <label>Tiempo de impresión (h):</label>
+    <input id="tiempo" type="number" step="0.1" placeholder="Ej: 5" />
+
+    <label>Consumo eléctrico de la impresora (W):</label>
+    <input id="consumo" type="number" step="1" value="120" placeholder="Ej: 120" />
+
+    <label>Precio de la electricidad (€/kWh):</label>
+    <input id="precioElectricidad" type="number" step="0.01" value="0.22" placeholder="Ej: 0,22" />
+
+    <label>Coste de mantenimiento (€/h):</label>
+    <input id="mantenimiento" type="number" step="0.1" value="0.5" placeholder="Ej: 0,5" />
+
+    <label>Margen de beneficio (%):</label>
+    <input id="margen" type="number" step="1" value="30" placeholder="Ej: 30" />
+
+    <button onclick="calcular()">Calcular precio</button>
+
+    <div id="resultado" class="resultado" style="display:none;"></div>
+
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal-content">
+            <p id="modalMessage"></p>
+            <button class="modal-button" onclick="cerrarModal()">Aceptar</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

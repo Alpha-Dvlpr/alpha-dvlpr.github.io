@@ -1,0 +1,9 @@
+{
+    "materiales": {
+        "PLA": 22,
+        "ABS": 25,
+        "PETG": 27,
+        "TPU": 32,
+        "Resina": 45
+    }
+}

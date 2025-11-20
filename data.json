@@ -19,7 +19,12 @@
         ],
         "others": {
             "title": "Mis proyectos",
-            "projects": []
+            "projects": [
+                {
+                    "name": "Aarontxu's Lab",
+                    "destination": "other/aarontxu_s_lab/calculator.html"
+                }
+            ]
         }
     },
     "jobs": {

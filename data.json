@@ -197,6 +197,18 @@
             "title": "Formación no reglada",
             "elements": [
                 {
+                    "title": "Introducción a Criptografía y Blockchain",
+                    "date": "Diciembre 2025",
+                    "company": "IT Formación, Training and technology",
+                    "img": "../img/it_formacion.png"
+                },
+                {
+                    "title": "SQL Avanzado para Desarrollo",
+                    "date": "Diciembre 2025",
+                    "company": "IT Formación, Training and technology",
+                    "img": "../img/it_formacion.png"
+                },
+                {
                     "title": "Desarrollo SQLite",
                     "date": "Mayo 2022",
                     "company": "IT Formación y Servicios",

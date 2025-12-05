@@ -1,0 +1,10 @@
+{
+    "materiales": {
+        "PLA": 22,
+        "PETG": 27
+    },
+    "consumo": 150.00,
+    "precioElectricidad": 0.22,
+    "mantenimiento": 0.50,
+    "margen": 30.00
+}

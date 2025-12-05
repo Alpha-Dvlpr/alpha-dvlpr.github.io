@@ -1,0 +1,34 @@
+{
+    "profile": {
+        "title": "Inicio",
+        "description": "¡Bienvenido/a! Soy Aarón, especialista en impresión 3D.\n\nEn esta web encontrarás información sobre los servicios que ofrezco y las diferentes formas de contactarme para resolver tus dudas, solicitar un presupuesto o realizar un pedido personalizado.\n\nAdemás, pongo a tu disposición una calculadora que te permitirá estimar el coste de tu pieza impresa en 3D si conoces los datos técnicos. Si no dispones de esta información, no te preocupes: contáctame y te proporcionaré un presupuesto detallado sin compromiso.",
+        "chips": [
+            {
+                "name": "Productos y servicios",
+                "destination": ""
+            },
+            {
+                "name": "Calculadora",
+                "destination": "calculator.html"
+            },
+            {
+                "name": "Contacto (WhatsApp)",
+                "destination": "https://wa.me/34692263029",
+                "newPage": true
+            },
+            {
+                "name": "Instagram",
+                "destination": "https://www.instagram.com/aarontxu.3d",
+                "newPage": true
+            }
+        ]
+    },
+    "languages": {
+        "es": "Español",
+        "en": "English",
+        "fr": "Français",
+        "it": "Italiano",
+        "de": "Deutsch",
+        "pt": "Português"
+    }
+}

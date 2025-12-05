@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aarontxu 3D</title>
+    <link rel="icon" type="image/png" href="img/mini_img.png">
+    <link rel="shortcut icon" type="image/x-icon" href="img/mini_img.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/mini_img.png">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="script.js"></script>
+
+    <!-- Fuente local -->
+    <style>
+        @font-face {
+            font-family: 'Monaco';
+            src: url('../../fonts/Monaco.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        body {
+            font-family: 'Monaco', monospace;
+        }
+
+        #description {
+            white-space: pre-wrap;
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body class="bg-orange-50 flex flex-col items-center min-h-screen">
+
+    <header class="w-full bg-gradient-to-r from-orange-500 to-red-500 shadow-md p-6 text-center">
+        <h1 id="main-title" class="text-3xl font-semibold text-white"></h1>
+        <div id="translate-container" class="absolute right-6 top-6">
+            <button id="translate-btn"
+                class="bg-white shadow-md text-orange-600 text-sm px-3 py-2 rounded-lg hover:bg-orange-50 transition">
+                🌐 Traducir
+            </button>
+        </div>
+    </header>
+
+    <!-- Bloque principal -->
+    <section id="main"
+        class="w-full max-w-4xl bg-white shadow-md rounded-2xl p-6 mt-10 flex flex-col items-center text-center">
+        <p id="home-description" class="text-lg text-slate-700 whitespace-pre-line"></p>
+    </section>
+
+    <!-- Bloque de chips principales -->
+    <section id="main-chips"
+        class="w-full max-w-4xl bg-white shadow-md rounded-2xl p-6 mt-8 flex flex-wrap justify-center gap-3 p-4 hidden">
+    </section>
+
+    <!-- Scroll to top button -->
+    <button id="scrollTopBtn"
+        class="fixed bottom-6 right-6 bg-orange-500 text-white px-4 py-2 rounded-full shadow-lg hover:bg-orange-600 transition-opacity opacity-0 pointer-events-none z-50">
+        ↑ Arriba
+    </button>
+
+    <footer class="text-center text-sm text-slate-500 mt-auto p-6 mb-6">
+        © 2025 Aarón Granado
+    </footer>
+
+</body>
+
+</html>

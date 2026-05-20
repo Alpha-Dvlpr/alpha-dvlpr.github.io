@@ -1,25 +1,59 @@
 {
     "profile": {
         "title": "Inicio",
-        "description": "¡Bienvenido/a! Soy Aarón, especialista en impresión 3D.\n\nEn esta web encontrarás información sobre los servicios que ofrezco y las diferentes formas de contactarme para resolver tus dudas, solicitar un presupuesto o realizar un pedido personalizado.\n\nAdemás, pongo a tu disposición una calculadora que te permitirá estimar el coste de tu pieza impresa en 3D si conoces los datos técnicos. Si no dispones de esta información, no te preocupes: contáctame y te proporcionaré un presupuesto detallado sin compromiso.",
+        "description": [
+            "¡Bienvenido/a! Soy Aarón, especialista en impresión 3D.",
+            "En esta web encontrarás información sobre los servicios que ofrezco y las diferentes formas de contactarme para resolver tus dudas, solicitar un presupuesto o realizar un pedido personalizado.",
+            "Contáctame y te proporcionaré un presupuesto detallado sin compromiso para cualquier idea que tengas."
+        ],
         "chips": [
             {
                 "name": "Productos y servicios",
-                "destination": ""
-            },
-            {
-                "name": "Calculadora",
-                "destination": "calculator.html"
+                "destination": "products_and_services.html"
             },
             {
                 "name": "Contacto (WhatsApp)",
-                "destination": "https://wa.me/34692263029",
+                "destination": "https://wa.me/34604972522",
                 "newPage": true
             },
             {
                 "name": "Instagram",
                 "destination": "https://www.instagram.com/aarontxu.3d",
                 "newPage": true
+            }
+        ]
+    },
+    "productsAndServices": {
+        "title": "Productos y servicios",
+        "description": [
+            "Aquí encontrarás una lista con algunos ejemplos de todos los encargos que he realizado hasta ahora organizados por tipos."
+        ],
+        "elements": [
+            {
+                "id":"PROD_01",
+                "category": {
+                    "id": "funko",
+                    "name": "Funko personalizado"
+                },
+                "description": [
+                    "Figura estilo Funko personalizada a partir de tus fotos.",
+                    "Completamente personalizable, si hay algo que no aparezca en la foto se puede añadir."
+                ],
+                "price": 20.00,
+                "imageCount": 1
+            },
+            {
+                "id":"PROD_02",
+                "category": {
+                    "id": "funko_2",
+                    "name": "Funko personalizado 2 personas"
+                },
+                "description": [
+                    "Figura estilo Funko personalizada de 2 personas a partir de tus fotos.",
+                    "Completamente personalizable, si hay algo que no aparezca en la foto se puede añadir."
+                ],
+                "price": 35.00,
+                "imageCount": 1
             }
         ]
     },

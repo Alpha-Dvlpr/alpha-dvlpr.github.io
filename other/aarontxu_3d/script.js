@@ -1,38 +1,15 @@
 /* --- DATA RETRIEVING --- */
+let data = null;
+
 async function fetchData() {
     try {
         const basePath = window.location.pathname.includes('main_pages') ? '../' : '';
         const response = await fetch(basePath + 'data/data.json');
-        return await response.json();
+        data = await response.json();
+        return data;
     } catch (error) {
         console.error("Error cargando data.json:", error);
         return null;
-    }
-}
-
-async function cargarMateriales() {
-    try {
-        const response = await fetch('data/materiales.json');
-        const data = await response.json();
-
-        materiales = data.materiales;
-        consumo = data.consumo;
-        precioElectricidad = data.precioElectricidad;
-        mantenimiento = data.mantenimiento;
-        margen = data.margen;
-
-        const selectMaterial = document.getElementById('material');
-        selectMaterial.innerHTML = '';
-
-        for (const [nombre, precio] of Object.entries(materiales)) {
-            const option = document.createElement('option');
-            option.value = nombre;
-            option.textContent = `${nombre} - ${precio} €/kg`;
-            selectMaterial.appendChild(option);
-        }
-    } catch (error) {
-        console.error('Error al cargar materiales:', error);
-        mostrarModal('Error al cargar los materiales. Verifica que el archivo materiales.json existe.');
     }
 }
 
@@ -45,7 +22,7 @@ async function loadHomeData() {
     const descriptionBlock = document.getElementById('home-description');
     const mainTitle = document.getElementById('main-title');
 
-    if (descriptionBlock) descriptionBlock.textContent = data.profile.description;
+    if (descriptionBlock) descriptionBlock.textContent = data.profile.description.join('\n\n');
     if (mainTitle) mainTitle.textContent = data.profile.title;
 
     // Bloque de chips principales con acción
@@ -69,79 +46,149 @@ async function loadHomeData() {
     }
 }
 
-/* --- CALCULATOR PAGE --- */
-let materiales = {};
-let consumo = 0.00;
-let precioElectricidad = 0.00;
-let mantenimiento = 0.00;
-let margen = 0.00;
+/* --- PRODUCTS AND SERVICES --- */
+async function loadProductsAndServicesData() {
+    const data = await fetchData();
+    if (!data) return;
 
-function mostrarModal(mensaje) {
-    const modal = document.getElementById('modalOverlay');
-    const modalMessage = document.getElementById('modalMessage');
-    modalMessage.textContent = mensaje;
-    modal.classList.remove('hidden');
-}
+    // Bloque principal
+    const descriptionBlock = document.getElementById('products-description');
+    const mainTitle = document.getElementById('main-title');
 
-function cerrarModal() {
-    const modal = document.getElementById('modalOverlay');
-    modal.classList.add('hidden');
-}
+    if (descriptionBlock) descriptionBlock.textContent = data.productsAndServices.description.join('\n\n');
+    if (mainTitle) mainTitle.textContent = data.productsAndServices.title;
 
-function calcular() {
-    const campos = ['material', 'peso', 'tiempo'];
-    campos.forEach(campo => {
-        document.getElementById(campo).classList.remove('error');
+    // Bloque de chips principales con acción
+    const chipsContainer = document.getElementById('main-chips');
+    const elements = data.productsAndServices.elements;
+    const chipMap = new Map();
+
+    elements.forEach(e => {
+        chipMap.set(e.category.id, e.category.name);
     });
 
-    const material = document.getElementById("material").value;
-    const peso = document.getElementById("peso").value;
-    const tiempo = document.getElementById("tiempo").value;
+    const chips = [
+        { id: 'all', name: 'Ver todo' },
+        ...[...chipMap.entries()]
+            .sort((a, b) => a[1].localeCompare(b[1]))
+            .map(([id, name]) => ({ id, name }))
+    ];
 
-    let camposConError = [];
+    chipsContainer.innerHTML = '';
 
-    if (!material) {
-        document.getElementById("material").classList.add('error');
-        camposConError.push('Material');
+    chips.forEach(chip => {
+        const button = document.createElement('button');
+        button.textContent = chip.name;
+        button.className = 'chip px-4 py-2 rounded-full transition';
+
+        if (chip.id === 'all') {
+            button.classList.add('bg-orange-500', 'text-white');
+        } else {
+            button.classList.add('bg-orange-100', 'text-orange-700');
+        }
+
+        button.onclick = () => {
+            document.querySelectorAll('.chip').forEach(c => {
+                c.classList.remove('bg-orange-500', 'text-white');
+                c.classList.add('bg-orange-100', 'text-orange-700');
+            });
+
+            button.classList.remove('bg-orange-100', 'text-orange-700');
+            button.classList.add('bg-orange-500', 'text-white');
+
+            renderProducts(chip.id);
+        };
+
+        chipsContainer.appendChild(button);
+    });
+
+    chipsContainer.classList.remove('hidden');
+    renderProducts('all');
+}
+
+function renderProducts(filter = 'all') {
+    const productsContainer = document.getElementById('products-container');
+    productsContainer.innerHTML = '';
+
+    const elements = data.productsAndServices.elements;
+    const filtered = filter === 'all'
+        ? elements
+        : elements.filter(e => e.category.id === filter);
+
+    filtered.forEach(element => {
+        const section = document.createElement('section');
+        section.className = 'w-full bg-white shadow-md rounded-2xl p-6 flex flex-col gap-4';
+
+        // TÍTULO
+        const title = document.createElement('h2');
+        title.className = 'text-lg font-semibold text-orange-500';
+        title.textContent = element.category.name.toUpperCase();
+
+        section.appendChild(title);
+
+        // DESCRIPCIÓN
+        const desc = document.createElement('p');
+        desc.className = 'text-slate-700 whitespace-pre-line';
+        desc.textContent = element.description.join('\n\n');
+
+        section.appendChild(desc);
+
+        // PRECIO
+        const price = document.createElement('p');
+        price.className = 'text-lg font-semibold text-orange-500';
+        price.textContent = `Precio: ${element.price.toFixed(2)}€`;
+
+        section.appendChild(price);
+
+        // GALERÍA (si existe imageCount)
+        if (element.imageCount && element.imageCount > 0) {
+            const gallery = document.createElement('div');
+
+            gallery.className = 'flex gap-4 overflow-x-auto pb-2';
+
+            for (let i = 1; i <= element.imageCount; i++) {
+                const img = document.createElement('img');
+
+                img.src = `img/products/${element.id}/${i}.jpg`;
+                img.className = 'h-48 rounded-xl shadow cursor-pointer hover:scale-105 transition';
+                img.loading = 'lazy';
+                img.onclick = () => openImageModal(img.src);
+
+                gallery.appendChild(img);
+            }
+
+            section.appendChild(gallery);
+        }
+
+        productsContainer.appendChild(section);
+    });
+}
+
+function openImageModal(src) {
+    let modal = document.getElementById('image-modal');
+
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'image-modal';
+        modal.className = 'fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4';
+        modal.innerHTML = `
+            <button id="close-modal"
+                class="absolute top-6 right-6 text-white text-4xl">x</button>
+            <img id="modal-image"
+                class="max-w-full max-h-full rounded-xl shadow-2xl">
+        `;
+
+        document.body.appendChild(modal);
+
+        modal.onclick = (e) => {
+            if (e.target === modal) modal.remove();
+        };
+        modal.querySelector('#close-modal').onclick = () => {
+            modal.remove();
+        };
     }
 
-    if (!peso || peso === '') {
-        document.getElementById("peso").classList.add('error');
-        camposConError.push('Peso');
-    }
-
-    if (!tiempo || tiempo === '') {
-        document.getElementById("tiempo").classList.add('error');
-        camposConError.push('Tiempo de impresión');
-    }
-
-    if (camposConError.length > 0) {
-        mostrarModal('Por favor, completa todos los campos requeridos.');
-        return;
-    }
-
-    if (!materiales[material]) {
-        mostrarModal('Material no válido');
-        return;
-    }
-
-    const precioFilamento = materiales[material];
-    const pesoNum = parseFloat(peso);
-    const tiempoNum = parseFloat(tiempo);
-
-    const costoMaterial = (pesoNum / 1000) * precioFilamento;
-    const costoElectricidad = (consumo / 1000) * tiempoNum * precioElectricidad;
-    const costoMantenimiento = tiempoNum * mantenimiento;
-
-    const subtotal = costoMaterial + costoElectricidad + costoMantenimiento;
-    const total = subtotal * (1 + margen / 100);
-
-    const resultado = document.getElementById("resultado");
-    resultado.style.display = "block";
-    resultado.innerHTML = `
-    <p>Material: <strong>${material}</strong></p>
-    <p>💶 Precio estimado: <strong>${total.toFixed(2)} €</strong></p>
-  `;
+    modal.querySelector('#modal-image').src = src;
 }
 
 /* --- GOOGLE TRANSLATE --- */
@@ -243,7 +290,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     loadGoogleTranslate();
 
     if (document.getElementById('home-description')) loadHomeData();
-    if (document.getElementById('calculator-body')) cargarMateriales();
+    if (document.getElementById('products-description')) loadProductsAndServicesData();
 
     const scrollTopBtn = document.getElementById('scrollTopBtn');
     const backBtn = document.getElementById('backBtn');

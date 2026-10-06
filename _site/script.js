@@ -54,59 +54,7 @@ function initializeTranslation() {
     });
 }
 
-function initializeProductFilters() {
-    const controls = document.getElementById('product-filters');
-    const cards = Array.from(document.querySelectorAll('[data-product-card]'));
-    if (!controls || cards.length === 0) return;
-
-    const categories = new Map(cards.map(card => [card.dataset.category, card.dataset.categoryName]));
-    const filters = [['all', 'Ver todo'], ...categories.entries()];
-
-    filters.forEach(([id, label], index) => {
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.textContent = label;
-        button.className = 'rounded-full px-4 py-2 transition';
-        button.setAttribute('aria-pressed', String(index === 0));
-        button.classList.add(...(index === 0 ? ['bg-orange-500', 'text-white'] : ['bg-orange-100', 'text-orange-700']));
-        button.addEventListener('click', () => {
-            cards.forEach(card => {
-                card.hidden = id !== 'all' && card.dataset.category !== id;
-            });
-            controls.querySelectorAll('button').forEach(filterButton => {
-                const selected = filterButton === button;
-                filterButton.setAttribute('aria-pressed', String(selected));
-                filterButton.classList.toggle('bg-orange-500', selected);
-                filterButton.classList.toggle('text-white', selected);
-                filterButton.classList.toggle('bg-orange-100', !selected);
-                filterButton.classList.toggle('text-orange-700', !selected);
-            });
-        });
-        controls.appendChild(button);
-    });
-}
-
-function initializeImageModal() {
-    const modal = document.getElementById('image-modal');
-    const image = document.getElementById('modal-image');
-    if (!(modal instanceof HTMLDialogElement) || !image) return;
-
-    document.querySelectorAll('[data-image-src]').forEach(button => {
-        button.addEventListener('click', () => {
-            image.src = button.dataset.imageSrc;
-            image.alt = button.dataset.imageAlt || '';
-            modal.showModal();
-        });
-    });
-
-    modal.addEventListener('click', event => {
-        if (event.target === modal) modal.close();
-    });
-}
-
 document.addEventListener('DOMContentLoaded', () => {
     initializeBackToTop();
     initializeTranslation();
-    initializeProductFilters();
-    initializeImageModal();
 });

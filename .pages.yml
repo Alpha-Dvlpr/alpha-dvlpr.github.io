@@ -4,12 +4,6 @@ media:
     input: img
     output: /img
     categories: [image]
-  - name: product_images
-    label: Imágenes de productos 3D
-    input: other/aarontxu_3d/img/products
-    output: /other/aarontxu_3d/img/products
-    categories: [image]
-
 content:
   - name: cv
     label: CV
@@ -124,63 +118,6 @@ content:
             fields:
               - { name: name, label: Nombre, type: string }
               - { name: destination, label: URL o dirección, type: string }
-      - name: languages
-        label: Idiomas de traducción
-        type: object
-        fields:
-          - { name: es, label: Español, type: string }
-          - { name: en, label: Inglés, type: string }
-          - { name: fr, label: Francés, type: string }
-          - { name: it, label: Italiano, type: string }
-          - { name: de, label: Alemán, type: string }
-          - { name: pt, label: Portugués, type: string }
-
-  - name: aarontxu_3d
-    label: Aarontxu 3D
-    type: file
-    path: _data/aarontxu_3d.json
-    format: json
-    fields:
-      - name: profile
-        label: Portada
-        type: object
-        fields:
-          - { name: title, label: Título, type: string }
-          - { name: description, label: Presentación, type: text, list: true }
-          - name: chips
-            label: Enlaces
-            type: object
-            list: true
-            fields:
-              - { name: name, label: Texto, type: string }
-              - { name: destination, label: Destino, type: string }
-              - { name: newPage, label: Abrir en otra pestaña, type: boolean }
-      - name: productsAndServices
-        label: Productos y servicios
-        type: object
-        fields:
-          - { name: title, label: Título, type: string }
-          - { name: description, label: Presentación, type: text, list: true }
-          - name: elements
-            label: Productos
-            type: object
-            list: true
-            fields:
-              - { name: id, label: Identificador, type: string }
-              - name: category
-                label: Categoría
-                type: object
-                fields:
-                  - { name: id, label: Identificador, type: string }
-                  - { name: name, label: Nombre, type: string }
-              - { name: description, label: Descripción, type: text, list: true }
-              - { name: price, label: Precio, type: number }
-              - name: images
-                label: Imágenes
-                type: image
-                options:
-                  media: product_images
-                  multiple: { max: 12 }
       - name: languages
         label: Idiomas de traducción
         type: object

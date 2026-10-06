@@ -1,0 +1,6 @@
+title: Aarón Granado
+description: Desarrollador iOS en Asturias, especializado en Swift, UIKit y SwiftUI.
+url: https://aarontxu.com
+baseurl: ""
+plugins:
+  - jekyll-sitemap

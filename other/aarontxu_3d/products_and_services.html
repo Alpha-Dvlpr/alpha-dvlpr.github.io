@@ -1,0 +1,49 @@
+---
+layout: default
+title: "Productos y servicios | Aarontxu 3D"
+heading_source: 3d_products_title
+description: "Ejemplos de productos y servicios de impresión 3D personalizada, con precios e imágenes."
+back_url: "/other/aarontxu_3d/"
+body_class: "bg-orange-50"
+header_class: "bg-gradient-to-r from-orange-500 to-red-500"
+heading_class: "text-white"
+translate_button_class: "text-orange-600 hover:bg-orange-50"
+main_class: "w-full max-w-4xl px-4 py-8"
+---
+{% assign products = site.data.aarontxu_3d.productsAndServices %}
+<section class="flex flex-col items-center rounded-2xl bg-white p-6 text-center shadow-md" aria-labelledby="products-intro">
+    <h2 id="products-intro" class="sr-only">{{ products.title | escape }}</h2>
+    <div class="whitespace-pre-line text-lg text-slate-700">
+        {% for paragraph in products.description %}<p class="mb-4 last:mb-0">{{ paragraph | escape }}</p>{% endfor %}
+    </div>
+</section>
+
+<nav id="product-filters" class="mt-8 flex flex-wrap justify-center gap-3" aria-label="Filtrar productos"></nav>
+
+<section class="mb-10 mt-8 flex flex-col gap-8 text-center" aria-label="Catálogo de productos">
+    {% for product in products.elements %}
+    <article class="flex w-full flex-col gap-4 rounded-2xl bg-white p-6 shadow-md" data-product-card data-category="{{ product.category.id | escape }}" data-category-name="{{ product.category.name | escape }}">
+        <h2 class="text-lg font-semibold text-orange-600">{{ product.category.name | escape }}</h2>
+        <div class="whitespace-pre-line text-slate-700">
+            {% for paragraph in product.description %}<p class="mb-3 last:mb-0">{{ paragraph | escape }}</p>{% endfor %}
+        </div>
+        <p class="text-lg font-semibold text-orange-600">Precio: {{ product.price | round: 2 }} €</p>
+        {% if product.images.size > 0 %}
+        <div class="flex gap-4 overflow-x-auto pb-2">
+            {% for image in product.images %}
+            <button class="shrink-0 cursor-zoom-in" type="button" data-image-src="{{ image | relative_url }}" data-image-alt="{{ product.category.name | escape }}">
+                <img class="h-48 w-auto rounded-xl object-contain shadow" src="{{ image | relative_url }}" alt="{{ product.category.name | escape }}" width="320" height="192" loading="lazy" decoding="async">
+            </button>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </article>
+    {% endfor %}
+</section>
+
+<dialog id="image-modal" class="max-h-[90vh] max-w-[90vw] rounded-xl bg-transparent p-0 backdrop:bg-black/80">
+    <form method="dialog" class="absolute right-4 top-4">
+        <button class="rounded-full bg-black/70 px-3 py-2 text-2xl text-white" aria-label="Cerrar imagen">×</button>
+    </form>
+    <img id="modal-image" class="max-h-[90vh] max-w-[90vw] rounded-xl object-contain" alt="">
+</dialog>

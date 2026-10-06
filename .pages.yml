@@ -1,0 +1,193 @@
+media:
+  - name: cv_images
+    label: Imágenes del CV
+    input: img
+    output: /img
+    categories: [image]
+  - name: product_images
+    label: Imágenes de productos 3D
+    input: other/aarontxu_3d/img/products
+    output: /other/aarontxu_3d/img/products
+    categories: [image]
+
+content:
+  - name: cv
+    label: CV
+    type: file
+    path: _data/cv.json
+    format: json
+    fields:
+      - name: profile
+        label: Perfil
+        type: object
+        fields:
+          - { name: name, label: Nombre, type: string }
+          - name: image
+            label: Foto de perfil
+            type: image
+            options: { media: cv_images }
+          - { name: description, label: Presentación, type: text }
+          - name: chips
+            label: Navegación principal
+            type: object
+            list: true
+            fields:
+              - { name: name, label: Texto, type: string }
+              - { name: destination, label: Destino, type: string }
+          - name: others
+            label: Proyectos personales
+            type: object
+            fields:
+              - { name: title, label: Título, type: string }
+              - name: projects
+                label: Proyectos
+                type: object
+                list: true
+                fields:
+                  - { name: name, label: Nombre, type: string }
+                  - { name: destination, label: URL, type: string }
+      - name: jobs
+        label: Experiencia
+        type: object
+        fields:
+          - { name: title, label: Título de página, type: string }
+          - name: items
+            label: Puestos
+            type: object
+            list: true
+            fields:
+              - { name: title, label: Puesto, type: string }
+              - { name: company, label: Empresa, type: string }
+              - { name: start_date, label: Fecha de inicio, type: string }
+              - { name: end_date, label: Fecha de fin, type: string }
+              - { name: description, label: Descripción, type: text }
+              - name: img
+                label: Imagen
+                type: image
+                options: { media: cv_images }
+              - name: contributions
+                label: Responsabilidades y logros
+                type: object
+                fields:
+                  - { name: title, label: Título, type: string }
+                  - { name: elements, label: Elementos, type: text, list: true }
+              - { name: tech_stack, label: Tecnologías, type: string, list: true }
+      - name: studies
+        label: Formación
+        type: object
+        fields:
+          - { name: title, label: Título de página, type: string }
+          - name: regular
+            label: Formación reglada
+            type: object
+            fields:
+              - { name: title, label: Título de sección, type: string }
+              - name: elements
+                label: Estudios
+                type: object
+                list: true
+                fields:
+                  - { name: title, label: Titulación, type: string }
+                  - { name: company, label: Centro, type: string }
+                  - { name: date, label: Fecha, type: string }
+                  - name: img
+                    label: Imagen
+                    type: image
+                    options: { media: cv_images }
+          - name: nonRegular
+            label: Formación no reglada
+            type: object
+            fields:
+              - { name: title, label: Título de sección, type: string }
+              - name: elements
+                label: Cursos
+                type: object
+                list: true
+                fields:
+                  - { name: title, label: Curso, type: string }
+                  - { name: company, label: Centro, type: string }
+                  - { name: date, label: Fecha, type: string }
+                  - name: img
+                    label: Imagen
+                    type: image
+                    options: { media: cv_images }
+      - name: contact
+        label: Contacto
+        type: object
+        fields:
+          - { name: title, label: Título, type: string }
+          - { name: description, label: Texto, type: text }
+          - name: elements
+            label: Canales de contacto
+            type: object
+            list: true
+            fields:
+              - { name: name, label: Nombre, type: string }
+              - { name: destination, label: URL o dirección, type: string }
+      - name: languages
+        label: Idiomas de traducción
+        type: object
+        fields:
+          - { name: es, label: Español, type: string }
+          - { name: en, label: Inglés, type: string }
+          - { name: fr, label: Francés, type: string }
+          - { name: it, label: Italiano, type: string }
+          - { name: de, label: Alemán, type: string }
+          - { name: pt, label: Portugués, type: string }
+
+  - name: aarontxu_3d
+    label: Aarontxu 3D
+    type: file
+    path: _data/aarontxu_3d.json
+    format: json
+    fields:
+      - name: profile
+        label: Portada
+        type: object
+        fields:
+          - { name: title, label: Título, type: string }
+          - { name: description, label: Presentación, type: text, list: true }
+          - name: chips
+            label: Enlaces
+            type: object
+            list: true
+            fields:
+              - { name: name, label: Texto, type: string }
+              - { name: destination, label: Destino, type: string }
+              - { name: newPage, label: Abrir en otra pestaña, type: boolean }
+      - name: productsAndServices
+        label: Productos y servicios
+        type: object
+        fields:
+          - { name: title, label: Título, type: string }
+          - { name: description, label: Presentación, type: text, list: true }
+          - name: elements
+            label: Productos
+            type: object
+            list: true
+            fields:
+              - { name: id, label: Identificador, type: string }
+              - name: category
+                label: Categoría
+                type: object
+                fields:
+                  - { name: id, label: Identificador, type: string }
+                  - { name: name, label: Nombre, type: string }
+              - { name: description, label: Descripción, type: text, list: true }
+              - { name: price, label: Precio, type: number }
+              - name: images
+                label: Imágenes
+                type: image
+                options:
+                  media: product_images
+                  multiple: { max: 12 }
+      - name: languages
+        label: Idiomas de traducción
+        type: object
+        fields:
+          - { name: es, label: Español, type: string }
+          - { name: en, label: Inglés, type: string }
+          - { name: fr, label: Francés, type: string }
+          - { name: it, label: Italiano, type: string }
+          - { name: de, label: Alemán, type: string }
+          - { name: pt, label: Portugués, type: string }

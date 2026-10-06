@@ -1,77 +1,31 @@
-<!DOCTYPE html>
-<html lang="es">
+---
+layout: default
+title: "Aarón Granado | Desarrollador iOS en Asturias"
+heading: "Aarón Granado"
+description: "Desarrollador iOS en Asturias, especializado en Swift, UIKit y SwiftUI. Experiencia en aplicaciones para iOS y tvOS."
+main_class: "w-full max-w-4xl px-4 py-8"
+person_schema: true
+---
+{% assign profile = site.data.cv.profile %}
+<section class="flex flex-col items-center rounded-2xl bg-white p-6 text-center shadow-md" aria-labelledby="about-title">
+    <h2 id="about-title" class="sr-only">Sobre mí</h2>
+    <img class="mb-4 h-64 w-64 rounded-full object-cover" src="{{ profile.image | relative_url }}" alt="Foto de {{ profile.name | escape }}" width="256" height="256" fetchpriority="high">
+    <p class="whitespace-pre-line text-left text-lg">{{ profile.description | escape }}</p>
+</section>
 
-<head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Aarón Granado</title>
-	<link rel="icon" type="image/png" href="img/mini_icon.png">
-	<link rel="shortcut icon" type="image/x-icon" href="img/mini_icon.ico">
-	<link rel="apple-touch-icon" sizes="180x180" href="img/mini_icon.png">
+<nav class="mt-8 flex flex-wrap justify-center gap-3" aria-label="Secciones del currículum">
+    {% for chip in profile.chips %}
+    <a class="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 transition hover:bg-blue-200" href="{{ chip.destination | relative_url }}">{{ chip.name | escape }}</a>
+    {% endfor %}
+</nav>
 
-	<script src="https://cdn.tailwindcss.com"></script>
-	<script defer src="script.js"></script>
-
-	<!-- Fuente local -->
-	<style>
-		@font-face {
-			font-family: 'Monaco';
-			src: url('./fonts/Monaco.woff') format('woff');
-			font-weight: normal;
-			font-style: normal;
-		}
-
-		body {
-			font-family: 'Monaco', monospace;
-		}
-
-		#description {
-			white-space: pre-wrap;
-			text-align: left;
-		}
-	</style>
-</head>
-
-<body class="bg-yellow-100 flex flex-col items-center min-h-screen">
-
-	<header class="w-full bg-yellow-50 shadow-md p-6 text-center">
-		<h1 id="main-title" class="text-3xl font-semibold"></h1>
-		<div id="translate-container" class="absolute right-6 top-6">
-			<button id="translate-btn"
-				class="bg-white shadow-md text-gray-700 text-sm px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition">
-				🌐 Traducir
-			</button>
-		</div>
-	</header>
-
-	<!-- Bloque principal -->
-	<section id="main"
-		class="w-full max-w-4xl bg-white shadow-md rounded-2xl p-6 mt-10 flex flex-col items-center text-center">
-		<img id="profile-pic" class="w-64 h-64 rounded-full mb-4 object-cover" src="" alt="Foto de perfil">
-		<p id="description" class="text-lg"></p>
-	</section>
-
-	<!-- Bloque de chips principales -->
-	<section id="main-chips"
-		class="w-full max-w-4xl bg-white shadow-md rounded-2xl p-6 mt-8 flex flex-wrap justify-center gap-3 p-4 hidden">
-	</section>
-
-	<!-- Bloque de otros proyectos (solo aparece si hay contenido) -->
-	<section id="others-block" class="w-full max-w-4xl bg-white shadow-md rounded-2xl p-6 mt-8 hidden text-center">
-		<h2 id="others-title" class="text-2xl font-semibold mb-4"></h2>
-		<div id="others-container" class="flex flex-wrap justify-center gap-3 p-4"></div>
-	</section>
-
-	<!-- Scroll to top button -->
-    <button id="scrollTopBtn"
-        class="fixed bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-600 transition-opacity opacity-0 pointer-events-none z-50">
-        ↑ Arriba
-    </button>
-
-	<footer class="text-center text-sm text-gray-500 mt-auto p-6 mb-6">
-		© 2025 Aarón Granado
-	</footer>
-
-</body>
-
-</html>
+{% if profile.others.projects.size > 0 %}
+<section class="mt-8 rounded-2xl bg-white p-6 text-center shadow-md" aria-labelledby="projects-title">
+    <h2 id="projects-title" class="mb-4 text-2xl font-semibold">{{ profile.others.title | escape }}</h2>
+    <div class="flex flex-wrap justify-center gap-3">
+        {% for project in profile.others.projects %}
+        <a class="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 transition hover:bg-blue-200" href="{{ project.destination | relative_url }}">{{ project.name | escape }}</a>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}

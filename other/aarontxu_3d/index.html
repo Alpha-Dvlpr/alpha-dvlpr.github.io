@@ -1,0 +1,24 @@
+---
+layout: default
+title: "Aarontxu 3D | Impresión 3D personalizada"
+heading_source: 3d_profile_title
+description: "Servicios de impresión 3D personalizada en Asturias. Consulta productos, servicios y solicita un presupuesto."
+body_class: "bg-orange-50"
+header_class: "bg-gradient-to-r from-orange-500 to-red-500"
+heading_class: "text-white"
+translate_button_class: "text-orange-600 hover:bg-orange-50"
+main_class: "w-full max-w-4xl px-4 py-8"
+---
+{% assign profile = site.data.aarontxu_3d.profile %}
+<section class="flex flex-col items-center rounded-2xl bg-white p-6 text-center shadow-md" aria-labelledby="intro-title">
+    <h2 id="intro-title" class="sr-only">Impresión 3D personalizada</h2>
+    <div class="whitespace-pre-line text-lg text-slate-700">
+        {% for paragraph in profile.description %}<p class="mb-4 last:mb-0">{{ paragraph | escape }}</p>{% endfor %}
+    </div>
+</section>
+
+<nav class="mt-8 flex flex-wrap justify-center gap-3" aria-label="Enlaces principales">
+    {% for chip in profile.chips %}
+    <a class="rounded-full bg-orange-100 px-4 py-2 text-sm font-medium text-orange-700 transition hover:bg-orange-200" href="{% if chip.newPage %}{{ chip.destination | escape }}{% else %}{{ chip.destination | relative_url }}{% endif %}" {% if chip.newPage %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ chip.name | escape }}</a>
+    {% endfor %}
+</nav>

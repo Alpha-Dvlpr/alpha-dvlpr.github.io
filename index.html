@@ -24,7 +24,11 @@ person_schema: true
     <h2 id="projects-title" class="mb-4 text-2xl font-semibold">{{ profile.others.title | escape }}</h2>
     <div class="flex flex-wrap justify-center gap-3">
         {% for project in profile.others.projects %}
-        <a class="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 transition hover:bg-blue-200" href="{% if project.destination contains '://' %}{{ project.destination | escape }}{% else %}{{ project.destination | relative_url }}{% endif %}" {% if project.destination contains '://' %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ project.name | escape }}</a>
+    {% assign project_destination = project.destination %}
+    {% if jekyll.environment == 'development' and project.destination contains '3d.aarontxu.com' %}
+    {% assign project_destination = 'http://127.0.0.1:4001/' %}
+    {% endif %}
+    <a class="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 transition hover:bg-blue-200" href="{% if project_destination contains '://' %}{{ project_destination | escape }}{% else %}{{ project_destination | relative_url }}{% endif %}" {% if project_destination contains '://' %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ project.name | escape }}</a>
         {% endfor %}
     </div>
 </section>

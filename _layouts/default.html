@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{ page.description | default: site.description | strip_html | normalize_whitespace | escape }}">
+    <meta name="theme-color" content="#fefce8">
+    <title>{{ page.title | default: site.title | escape }}</title>
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{ site.title | escape }}">
+    <meta property="og:title" content="{{ page.title | default: site.title | escape }}">
+    <meta property="og:description" content="{{ page.description | default: site.description | strip_html | normalize_whitespace | escape }}">
+    <meta property="og:url" content="{{ page.url | absolute_url }}">
+    <meta property="og:image" content="{{ '/img/my_image.jpg' | relative_url | absolute_url }}">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" type="image/png" href="{{ '/img/mini_icon.png' | relative_url }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ '/img/mini_icon.png' | relative_url }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @font-face {
+            font-family: 'Monaco';
+            src: url('{{ '/fonts/Monaco.woff' | relative_url }}') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        body {
+            font-family: 'Monaco', monospace;
+        }
+    </style>
+    {% if page.person_schema %}
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": {{ site.data.cv.profile.name | jsonify }},
+        "jobTitle": "Desarrollador iOS",
+        "address": {
+            "@type": "PostalAddress",
+            "addressRegion": "Asturias",
+            "addressCountry": "ES"
+        },
+        "url": {{ page.url | absolute_url | jsonify }},
+        "sameAs": ["https://www.linkedin.com/in/aaron-granado-amores/"]
+    }
+    </script>
+    {% endif %}
+</head>
+<body class="{{ page.body_class | default: 'bg-yellow-100' }} flex min-h-screen flex-col items-center">
+    <a class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-white focus:p-3" href="#main-content">Saltar al contenido</a>
+    {% assign header_class = page.header_class | default: 'bg-yellow-50' %}
+    {% assign heading_class = page.heading_class | default: 'text-gray-900' %}
+    {% assign translate_button_class = page.translate_button_class | default: 'text-gray-700 hover:bg-blue-50 hover:text-blue-600' %}
+    <header class="relative grid w-full grid-cols-[1fr_auto_1fr] items-center p-4 shadow-md sm:p-6 {{ header_class }}">
+        <div class="justify-self-start">
+            {% if page.back_url %}
+            <a href="{{ page.back_url | relative_url }}" class="rounded-full bg-blue-500 px-3 py-2 text-sm text-white shadow-sm hover:bg-blue-600">← Inicio</a>
+            {% endif %}
+        </div>
+        <h1 class="min-w-0 max-w-[55vw] break-words text-center text-base font-semibold sm:max-w-none sm:text-3xl {{ heading_class }}">{% case page.heading_source %}{% when 'cv_profile_name' %}{{ site.data.cv.profile.name | escape }}{% when 'cv_jobs_title' %}{{ site.data.cv.jobs.title | escape }}{% when 'cv_studies_title' %}{{ site.data.cv.studies.title | escape }}{% when 'cv_contact_title' %}{{ site.data.cv.contact.title | escape }}{% when '3d_profile_title' %}{{ site.data.aarontxu_3d.profile.title | escape }}{% when '3d_products_title' %}{{ site.data.aarontxu_3d.productsAndServices.title | escape }}{% else %}{{ page.heading | default: page.title | escape }}{% endcase %}</h1>
+        <div id="translate-container" class="justify-self-end">
+            <button id="translate-btn" type="button" class="rounded-lg bg-white px-3 py-2 text-sm shadow-md transition {{ translate_button_class }}" aria-haspopup="true" aria-expanded="false" title="Traducir página">🌐 <span class="hidden sm:inline">Traducir</span></button>
+            <div id="google_translate_element" class="absolute right-4 top-full z-50 hidden bg-white p-2 shadow-md" aria-label="Seleccionar idioma"></div>
+        </div>
+    </header>
+    <main id="main-content" class="{{ page.main_class | default: 'w-full max-w-5xl px-4 py-8' }}">
+        {{ content }}
+    </main>
+    <button id="scrollTopBtn" type="button" class="pointer-events-none fixed bottom-6 right-6 z-50 rounded-full bg-blue-500 px-4 py-2 text-white opacity-0 shadow-lg transition-opacity hover:bg-blue-600" aria-label="Volver arriba">↑ Arriba</button>
+    <footer class="mt-auto p-6 text-center text-sm text-gray-500">© {{ site.time | date: '%Y' }} {{ site.title }}</footer>
+    <script type="application/json" id="translate-languages">{{ site.data.cv.languages | jsonify }}</script>
+    <script defer src="{{ '/script.js' | relative_url }}"></script>
+</body>
+</html>

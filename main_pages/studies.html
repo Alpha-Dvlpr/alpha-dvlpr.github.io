@@ -1,73 +1,26 @@
-<!DOCTYPE html>
-<html lang="es">
+---
+layout: default
+title: "Formación | Aarón Granado"
+heading: "Mis titulaciones"
+description: "Formación reglada y cursos de Aarón Granado en desarrollo de aplicaciones, ciberseguridad, idiomas y metodologías ágiles."
+back_url: "/"
+main_class: "w-full max-w-5xl px-4 py-8 flex flex-col gap-10"
+---
+{% assign studies = site.data.cv.studies %}
+<section class="flex flex-col gap-6 rounded-2xl bg-yellow-50 p-4" aria-labelledby="regular-title">
+    <h2 id="regular-title" class="mb-2 text-center text-2xl font-semibold">{{ studies.regular.title | escape }}</h2>
+    <div class="flex flex-col gap-6">
+        {% for study in studies.regular.elements %}
+        {% include study-card.html study=study %}
+        {% endfor %}
+    </div>
+</section>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aarón Granado</title>
-    <link rel="icon" type="image/png" href="../img/mini_icon.png">
-    <link rel="shortcut icon" type="image/x-icon" href="../img/mini_icon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="../img/mini_icon.png">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="../script.js"></script>
-
-    <!-- Fuente local -->
-    <style>
-        @font-face {
-            font-family: 'Monaco';
-            src: url('../fonts/Monaco.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        body {
-            font-family: 'Monaco', monospace;
-        }
-    </style>
-</head>
-
-<body class="bg-yellow-100 flex flex-col items-center min-h-screen">
-
-    <header class="w-full bg-yellow-50 shadow-md p-6 text-center">
-        <button id="backBtn"
-            class="absolute left-6 top-6 bg-blue-500 text-white hover:bg-blue-600 px-3 py-1 rounded-full shadow-sm">
-            ← Atrás
-        </button>
-        <h1 id="studies-title" class="text-3xl font-semibold"></h1>
-        <div id="translate-container" class="absolute right-6 top-6">
-            <button id="translate-btn"
-                class="bg-white shadow-md text-gray-700 text-sm px-3 py-2 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition">
-                🌐 Traducir
-            </button>
-        </div>
-    </header>
-
-    <main id="studies-container" class="w-full max-w-5xl mx-auto mt-10 px-4 flex flex-col gap-10">
-
-        <!-- Bloque Formación Reglada -->
-        <section id="regular-block" class="hidden flex flex-col gap-6 p-4 rounded-2xl bg-yellow-50">
-            <h2 class="text-2xl font-semibold mb-4 text-center" id="regular-title"></h2>
-            <div id="regular-container" class="flex flex-col gap-6"></div>
-        </section>
-
-        <!-- Bloque Formación No Reglada -->
-        <section id="non-regular-block" class="hidden flex flex-col gap-6 p-4 rounded-2xl bg-yellow-50">
-            <h2 class="text-2xl font-semibold mb-4 text-center" id="non-regular-title"></h2>
-            <div id="non-regular-container" class="flex flex-col gap-6"></div>
-        </section>
-
-    </main>
-
-    <!-- Scroll to top button -->
-    <button id="scrollTopBtn"
-        class="fixed bottom-6 right-6 bg-blue-500 text-white px-4 py-2 rounded-full shadow-lg hover:bg-blue-600 transition-opacity opacity-0 pointer-events-none z-50">
-        ↑ Arriba
-    </button>
-
-    <footer class="text-center text-sm text-gray-500 mt-auto p-6 mb-6">
-        © 2026 Aarón Granado
-    </footer>
-</body>
-
-</html>
+<section class="flex flex-col gap-6 rounded-2xl bg-yellow-50 p-4" aria-labelledby="non-regular-title">
+    <h2 id="non-regular-title" class="mb-2 text-center text-2xl font-semibold">{{ studies.nonRegular.title | escape }}</h2>
+    <div class="flex flex-col gap-6">
+        {% for study in studies.nonRegular.elements %}
+        {% include study-card.html study=study %}
+        {% endfor %}
+    </div>
+</section>

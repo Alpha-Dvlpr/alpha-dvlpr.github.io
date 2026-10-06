@@ -1,70 +1,24 @@
-<!DOCTYPE html>
-<html lang="es">
+---
+layout: default
+title: "Aarontxu 3D | Impresión 3D personalizada"
+heading_source: 3d_profile_title
+description: "Servicios de impresión 3D personalizada en Asturias. Consulta productos, servicios y solicita un presupuesto."
+body_class: "bg-orange-50"
+header_class: "bg-gradient-to-r from-orange-500 to-red-500"
+heading_class: "text-white"
+translate_button_class: "text-orange-600 hover:bg-orange-50"
+main_class: "w-full max-w-4xl px-4 py-8"
+---
+{% assign profile = site.data.aarontxu_3d.profile %}
+<section class="flex flex-col items-center rounded-2xl bg-white p-6 text-center shadow-md" aria-labelledby="intro-title">
+    <h2 id="intro-title" class="sr-only">Impresión 3D personalizada</h2>
+    <div class="whitespace-pre-line text-lg text-slate-700">
+        {% for paragraph in profile.description %}<p class="mb-4 last:mb-0">{{ paragraph | escape }}</p>{% endfor %}
+    </div>
+</section>
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aarontxu 3D</title>
-    <link rel="icon" type="image/png" href="img/mini_img.png">
-    <link rel="shortcut icon" type="image/x-icon" href="img/mini_img.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="img/mini_img.png">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="script.js"></script>
-
-    <!-- Fuente local -->
-    <style>
-        @font-face {
-            font-family: 'Monaco';
-            src: url('../../fonts/Monaco.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        body {
-            font-family: 'Monaco', monospace;
-        }
-
-        #description {
-            white-space: pre-wrap;
-            text-align: left;
-        }
-    </style>
-</head>
-
-<body class="bg-orange-50 flex flex-col items-center min-h-screen">
-
-    <header class="w-full bg-gradient-to-r from-orange-500 to-red-500 shadow-md p-6 text-center">
-        <h1 id="main-title" class="text-3xl font-semibold text-white"></h1>
-        <div id="translate-container" class="absolute right-6 top-6">
-            <button id="translate-btn"
-                class="bg-white shadow-md text-orange-600 text-sm px-3 py-2 rounded-lg hover:bg-orange-50 transition">
-                🌐 Traducir
-            </button>
-        </div>
-    </header>
-
-    <!-- Bloque principal -->
-    <section id="main"
-        class="w-full max-w-4xl bg-white shadow-md rounded-2xl p-6 mt-10 flex flex-col items-center text-center">
-        <p id="home-description" class="text-lg text-slate-700 whitespace-pre-line"></p>
-    </section>
-
-    <!-- Bloque de chips principales -->
-    <section id="main-chips"
-        class="w-full max-w-4xl bg-white shadow-md rounded-2xl p-6 mt-8 flex flex-wrap justify-center gap-3 p-4 hidden">
-    </section>
-
-    <!-- Scroll to top button -->
-    <button id="scrollTopBtn"
-        class="fixed bottom-6 right-6 bg-orange-500 text-white px-4 py-2 rounded-full shadow-lg hover:bg-orange-600 transition-opacity opacity-0 pointer-events-none z-50">
-        ↑ Arriba
-    </button>
-
-    <footer class="text-center text-sm text-slate-500 mt-auto p-6 mb-6">
-        © 2026 Aarón Granado
-    </footer>
-
-</body>
-
-</html>
+<nav class="mt-8 flex flex-wrap justify-center gap-3" aria-label="Enlaces principales">
+    {% for chip in profile.chips %}
+    <a class="rounded-full bg-orange-100 px-4 py-2 text-sm font-medium text-orange-700 transition hover:bg-orange-200" href="{% if chip.newPage %}{{ chip.destination | escape }}{% else %}{{ chip.destination | relative_url }}{% endif %}" {% if chip.newPage %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ chip.name | escape }}</a>
+    {% endfor %}
+</nav>

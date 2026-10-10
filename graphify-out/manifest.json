@@ -1,0 +1,14 @@
+{
+  "_data/cv.json": {
+    "mtime": 1791322963.7630847,
+    "seen": 1791663237.135594,
+    "ast_hash": "7db6d153285c12edd1910eb43749e056",
+    "semantic_hash": "7db6d153285c12edd1910eb43749e056"
+  },
+  "script.js": {
+    "mtime": 1791325534.2426658,
+    "seen": 1791663237.135595,
+    "ast_hash": "3bd888993b08d61cbaf507f2b1247ccf",
+    "semantic_hash": "3bd888993b08d61cbaf507f2b1247ccf"
+  }
+}

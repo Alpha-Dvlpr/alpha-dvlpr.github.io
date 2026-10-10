@@ -1,0 +1,70 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "schema_version": 1,
+    "graphify_version": "0.9.83"
+  },
+  "nodes": [
+    {
+      "id": "script_initializebacktotop",
+      "label": "initializeBackToTop()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "initializebacktotop()",
+      "source_file": "script.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "script_initializetranslation",
+      "label": "initializeTranslation()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "initializetranslation()",
+      "source_file": "script.js",
+      "source_location": "L17"
+    },
+    {
+      "id": "script",
+      "label": "script.js",
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "script.js",
+      "source_file": "script.js",
+      "source_location": "L1"
+    }
+  ],
+  "links": [
+    {
+      "source": "script",
+      "target": "script_initializebacktotop",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "script.js",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "script",
+      "target": "script_initializetranslation",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "script.js",
+      "source_location": "L17",
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "8d1a31e821f4786bf65dbd7f93011d5dbc99c77b"
+}

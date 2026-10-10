@@ -1,0 +1,18 @@
+{
+  "communities": {
+    "0": [
+      "script",
+      "script_initializebacktotop",
+      "script_initializetranslation"
+    ]
+  },
+  "cohesion": {
+    "0": 0.6666666666666666
+  },
+  "gods": [],
+  "surprises": [],
+  "tokens": {
+    "input": 0,
+    "output": 0
+  }
+}

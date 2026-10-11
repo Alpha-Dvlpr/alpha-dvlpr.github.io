@@ -1,18 +1,156 @@
 {
   "communities": {
     "0": [
+      "cms",
+      "cms_github_pages",
+      "cms_pages_cms",
+      "pages",
+      "pages_cv",
+      "pages_cv_images"
+    ],
+    "1": [
+      "index",
+      "layouts_default",
+      "layouts_default_person_schema",
+      "layouts_default_translate_widget",
+      "main_pages_contact",
+      "main_pages_studies"
+    ],
+    "2": [
+      "cms_root_relative_image_paths",
+      "includes_job_card",
+      "includes_study_card",
+      "main_pages_experience"
+    ],
+    "3": [
+      "config",
+      "config_jekyll_sitemap",
+      "robots"
+    ],
+    "4": [
       "script",
       "script_initializebacktotop",
       "script_initializetranslation"
     ]
   },
   "cohesion": {
-    "0": 0.6666666666666666
+    "0": 0.4,
+    "1": 0.4,
+    "2": 0.6666666666666666,
+    "3": 0.6666666666666666,
+    "4": 0.6666666666666666
   },
-  "gods": [],
-  "surprises": [],
+  "gods": [
+    {
+      "id": "layouts_default",
+      "label": "default layout",
+      "degree": 7
+    },
+    {
+      "id": "pages",
+      "label": ".pages.yml (Pages CMS config)",
+      "degree": 3
+    },
+    {
+      "id": "cms",
+      "label": "CMS.md \u2013 Edici\u00f3n del contenido",
+      "degree": 3
+    },
+    {
+      "id": "cms_root_relative_image_paths",
+      "label": "Root-relative image paths with relative_url",
+      "degree": 3
+    },
+    {
+      "id": "includes_job_card",
+      "label": "job-card include",
+      "degree": 3
+    },
+    {
+      "id": "includes_study_card",
+      "label": "study-card include",
+      "degree": 3
+    },
+    {
+      "id": "pages_cv_images",
+      "label": "cv_images media (img/)",
+      "degree": 2
+    },
+    {
+      "id": "pages_cv",
+      "label": "CV content schema",
+      "degree": 2
+    },
+    {
+      "id": "cms_pages_cms",
+      "label": "Pages CMS",
+      "degree": 2
+    },
+    {
+      "id": "config",
+      "label": "_config.yml (Jekyll site config)",
+      "degree": 2
+    }
+  ],
+  "surprises": [
+    {
+      "source": "default layout",
+      "target": "_config.yml (Jekyll site config)",
+      "source_files": [
+        "_layouts/default.html",
+        "_config.yml"
+      ],
+      "confidence": "INFERRED",
+      "relation": "references",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; bridges separate communities; peripheral node `_config.yml (Jekyll site config)` unexpectedly reaches hub `default layout`"
+    },
+    {
+      "source": "Experience page",
+      "target": "default layout",
+      "source_files": [
+        "main_pages/experience.html",
+        "_layouts/default.html"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories; bridges separate communities; peripheral node `Experience page` unexpectedly reaches hub `default layout`"
+    },
+    {
+      "source": "job-card include",
+      "target": "Root-relative image paths with relative_url",
+      "source_files": [
+        "_includes/job-card.html",
+        "CMS.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "implements",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    },
+    {
+      "source": "study-card include",
+      "target": "Root-relative image paths with relative_url",
+      "source_files": [
+        "_includes/study-card.html",
+        "CMS.md"
+      ],
+      "confidence": "INFERRED",
+      "relation": "implements",
+      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
+    },
+    {
+      "source": "index.html (home page)",
+      "target": "default layout",
+      "source_files": [
+        "index.html",
+        "_layouts/default.html"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "references",
+      "why": "connects across different repos/directories; peripheral node `index.html (home page)` unexpectedly reaches hub `default layout`"
+    }
+  ],
   "tokens": {
-    "input": 0,
-    "output": 0
+    "input": 38189,
+    "output": 5214
   }
 }

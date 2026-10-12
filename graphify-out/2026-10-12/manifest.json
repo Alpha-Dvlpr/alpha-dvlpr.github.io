@@ -1,0 +1,74 @@
+{
+  "_data/cv.json": {
+    "mtime": 1791835378.1157076,
+    "seen": 1791835518.728779,
+    "ast_hash": "26b47fa90d2dbc0755433092332df4a4",
+    "semantic_hash": "26b47fa90d2dbc0755433092332df4a4"
+  },
+  "script.js": {
+    "mtime": 1791834684.507889,
+    "seen": 1791834921.083136,
+    "ast_hash": "c4c0baeace5c76880dbf97d94ac93427",
+    "semantic_hash": "c4c0baeace5c76880dbf97d94ac93427"
+  },
+  ".pages.yml": {
+    "mtime": 1791834421.9969351,
+    "seen": 1791834921.083137,
+    "ast_hash": "a623ec6b74bf8beb49d99f21ebf916de",
+    "semantic_hash": "a623ec6b74bf8beb49d99f21ebf916de"
+  },
+  "CMS.md": {
+    "mtime": 1791325534.225489,
+    "seen": 1791666064.295197,
+    "ast_hash": "7e7db55621d4d90834f9eb4ff7d19e0e",
+    "semantic_hash": "7e7db55621d4d90834f9eb4ff7d19e0e"
+  },
+  "_config.yml": {
+    "mtime": 1791835601.2417262,
+    "seen": 1791835635.9216378,
+    "ast_hash": "4e8c871648060098b71095763199689f",
+    "semantic_hash": "4e8c871648060098b71095763199689f"
+  },
+  "_includes/job-card.html": {
+    "mtime": 1791819098.4536686,
+    "seen": 1791819268.763367,
+    "ast_hash": "706c8d6aa6f09966d1d5f5cc62e66799",
+    "semantic_hash": "706c8d6aa6f09966d1d5f5cc62e66799"
+  },
+  "_includes/study-card.html": {
+    "mtime": 1791819098.4537666,
+    "seen": 1791819268.763368,
+    "ast_hash": "630d455ed0e51a0bd68b7c706851614b",
+    "semantic_hash": "630d455ed0e51a0bd68b7c706851614b"
+  },
+  "_layouts/default.html": {
+    "mtime": 1791834684.5075645,
+    "seen": 1791834921.083138,
+    "ast_hash": "e98a12821c5e9ea6664bda1cdec1fc46",
+    "semantic_hash": "e98a12821c5e9ea6664bda1cdec1fc46"
+  },
+  "index.html": {
+    "mtime": 1791835744.1014416,
+    "seen": 1791835771.710505,
+    "ast_hash": "ee08e9667cfdcc6663f60564f81e954d",
+    "semantic_hash": "ee08e9667cfdcc6663f60564f81e954d"
+  },
+  "robots.txt": {
+    "mtime": 1791322770.1204436,
+    "seen": 1791666064.295207,
+    "ast_hash": "ef85efad7fd6ff966899399c0fe93806",
+    "semantic_hash": "ef85efad7fd6ff966899399c0fe93806"
+  },
+  "pages/experience.html": {
+    "mtime": 1791819111.9073238,
+    "seen": 1791835518.7288299,
+    "ast_hash": "0141d75c7dde340a1774b8ca57242a4f",
+    "semantic_hash": "0141d75c7dde340a1774b8ca57242a4f"
+  },
+  "pages/studies.html": {
+    "mtime": 1791819111.9075208,
+    "seen": 1791835518.7288299,
+    "ast_hash": "75a30d99a9a5ee92eaa0f9600af0b8bb",
+    "semantic_hash": "75a30d99a9a5ee92eaa0f9600af0b8bb"
+  }
+}

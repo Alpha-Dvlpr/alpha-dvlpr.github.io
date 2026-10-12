@@ -20,6 +20,7 @@ content:
             label: Foto de perfil
             type: image
             options: { media: cv_images }
+          - { name: headline, label: Título de apertura (opcional), type: string }
           - { name: description, label: Presentación, type: text }
           - name: chips
             label: Navegación principal

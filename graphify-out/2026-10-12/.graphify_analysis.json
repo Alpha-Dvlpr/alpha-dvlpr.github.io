@@ -1,0 +1,140 @@
+{
+  "communities": {
+    "0": [
+      "_layouts_default",
+      "_layouts_default_accessibility",
+      "_layouts_default_css_variables",
+      "_layouts_default_header",
+      "_layouts_default_person_schema",
+      "_layouts_default_scroll_top_button",
+      "_layouts_default_seo_meta",
+      "_layouts_default_tailwind_config",
+      "_layouts_default_theme_switcher",
+      "_layouts_default_translate_widget",
+      "tailwind_cdn"
+    ],
+    "1": [
+      "pages_yml",
+      "pages_yml_contact",
+      "pages_yml_cv_content",
+      "pages_yml_cv_images_media",
+      "pages_yml_jobs",
+      "pages_yml_languages",
+      "pages_yml_profile",
+      "pages_yml_studies"
+    ],
+    "2": [
+      "index",
+      "index_about_section",
+      "index_contact_section",
+      "index_dev_project_redirect",
+      "index_external_link_pattern",
+      "index_projects_section"
+    ],
+    "3": [
+      "_config",
+      "_config_graphify_out_exclude",
+      "_config_ios_developer_profile",
+      "_config_jekyll_sitemap_plugin",
+      "_config_site_aaron_granado"
+    ],
+    "4": [
+      "script",
+      "script_initializebacklink",
+      "script_initializebacktotop",
+      "script_initializethemetoggle",
+      "script_initializetranslation"
+    ],
+    "5": [
+      "cms",
+      "cms_github_pages",
+      "cms_pages_cms",
+      "cms_root_relative_image_paths"
+    ],
+    "6": [
+      "_includes_job_card_job_card"
+    ],
+    "7": [
+      "_includes_study_card_study_card"
+    ],
+    "8": [
+      "pages_experience"
+    ],
+    "9": [
+      "pages_studies"
+    ],
+    "10": [
+      "robots"
+    ]
+  },
+  "cohesion": {
+    "0": 0.2727272727272727,
+    "1": 0.35714285714285715,
+    "2": 0.4666666666666667,
+    "3": 0.4,
+    "4": 0.4,
+    "5": 0.5,
+    "6": 1.0,
+    "7": 1.0,
+    "8": 1.0,
+    "9": 1.0,
+    "10": 1.0
+  },
+  "gods": [
+    {
+      "id": "_layouts_default",
+      "label": "Default Jekyll Layout",
+      "degree": 10
+    },
+    {
+      "id": "pages_yml_cv_content",
+      "label": "CV content definition (_data/cv.json)",
+      "degree": 6
+    },
+    {
+      "id": "pages_yml_cv_images_media",
+      "label": "cv_images media collection",
+      "degree": 4
+    },
+    {
+      "id": "cms",
+      "label": "CMS.md \u2013 Edici\u00f3n del contenido",
+      "degree": 3
+    },
+    {
+      "id": "_layouts_default_css_variables",
+      "label": "Light/Dark CSS Variables",
+      "degree": 3
+    },
+    {
+      "id": "_layouts_default_theme_switcher",
+      "label": "Theme Switcher (auto/light/dark)",
+      "degree": 3
+    },
+    {
+      "id": "_layouts_default_header",
+      "label": "Sticky Header (back link, title, theme and translate buttons)",
+      "degree": 3
+    },
+    {
+      "id": "_layouts_default_tailwind_config",
+      "label": "Tailwind Config (CSS-variable palette)",
+      "degree": 3
+    },
+    {
+      "id": "_config",
+      "label": "Jekyll site configuration (_config.yml)",
+      "degree": 3
+    },
+    {
+      "id": "index",
+      "label": "Home page (index.html)",
+      "degree": 3
+    }
+  ],
+  "surprises": [],
+  "tokens": {
+    "input": 136654,
+    "output": 4300
+  }
+}

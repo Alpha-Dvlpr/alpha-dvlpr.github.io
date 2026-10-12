@@ -4,21 +4,21 @@ title: "Formación | Aarón Granado"
 heading: "Mis titulaciones"
 description: "Formación reglada y cursos de Aarón Granado en desarrollo de aplicaciones, ciberseguridad, idiomas y metodologías ágiles."
 back_url: "/"
-main_class: "w-full max-w-5xl px-4 py-8 flex flex-col gap-10"
+main_class: "w-full max-w-4xl px-4 py-8 sm:py-12 flex flex-col gap-12"
 ---
 {% assign studies = site.data.cv.studies %}
-<section class="flex flex-col gap-6 rounded-2xl bg-yellow-50 p-4" aria-labelledby="regular-title">
-    <h2 id="regular-title" class="mb-2 text-center text-2xl font-semibold">{{ studies.regular.title | escape }}</h2>
-    <div class="flex flex-col gap-6">
+<section class="flex flex-col gap-5" aria-labelledby="regular-title">
+    <h2 id="regular-title" class="px-2 text-2xl font-bold tracking-tight">{{ studies.regular.title | escape }}</h2>
+    <div class="flex flex-col gap-4">
         {% for study in studies.regular.elements %}
         {% include study-card.html study=study %}
         {% endfor %}
     </div>
 </section>
 
-<section class="flex flex-col gap-6 rounded-2xl bg-yellow-50 p-4" aria-labelledby="non-regular-title">
-    <h2 id="non-regular-title" class="mb-2 text-center text-2xl font-semibold">{{ studies.nonRegular.title | escape }}</h2>
-    <div class="flex flex-col gap-6">
+<section class="flex flex-col gap-5" aria-labelledby="non-regular-title">
+    <h2 id="non-regular-title" class="px-2 text-2xl font-bold tracking-tight">{{ studies.nonRegular.title | escape }}</h2>
+    <div class="flex flex-col gap-4">
         {% for study in studies.nonRegular.elements %}
         {% include study-card.html study=study %}
         {% endfor %}

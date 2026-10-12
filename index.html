@@ -3,32 +3,55 @@ layout: default
 title: "Aarón Granado | Desarrollador iOS en Asturias"
 heading: "Aarón Granado"
 description: "Desarrollador iOS en Asturias, especializado en Swift, UIKit y SwiftUI. Experiencia en aplicaciones para iOS y tvOS."
-main_class: "w-full max-w-4xl px-4 py-8"
+main_class: "w-full max-w-3xl px-4 py-8 sm:py-12"
 person_schema: true
 ---
 {% assign profile = site.data.cv.profile %}
-<section class="flex flex-col items-center rounded-2xl bg-white p-6 text-center shadow-md" aria-labelledby="about-title">
+<section class="relative isolate flex flex-col items-center overflow-hidden rounded-[2rem] bg-surface px-6 py-10 text-center shadow-card sm:px-14 sm:py-14" aria-labelledby="about-title">
+    <div class="pointer-events-none absolute -left-16 -top-16 -z-10 h-64 w-64 rounded-full bg-brand/20 blur-3xl" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute -bottom-20 -right-16 -z-10 h-64 w-64 rounded-full bg-accent/25 blur-3xl" aria-hidden="true"></div>
+    <img class="h-40 w-40 rounded-full object-cover shadow-lg ring-4 ring-brand sm:h-52 sm:w-52" src="{{ profile.image | relative_url }}" alt="Foto de {{ profile.name | escape }}" width="208" height="208" fetchpriority="high">
+    {% if profile.headline %}
+    <h2 id="about-title" class="mt-8 bg-gradient-to-r from-grad-from to-grad-to bg-clip-text text-3xl font-bold leading-tight tracking-tight text-transparent sm:text-5xl">{{ profile.headline | escape }}</h2>
+    {% else %}
     <h2 id="about-title" class="sr-only">Sobre mí</h2>
-    <img class="mb-4 h-64 w-64 rounded-full object-cover" src="{{ profile.image | relative_url }}" alt="Foto de {{ profile.name | escape }}" width="256" height="256" fetchpriority="high">
-    <p class="whitespace-pre-line text-left text-lg">{{ profile.description | escape }}</p>
+    {% endif %}
+    <p class="{% if profile.headline %}mt-4{% else %}mt-8{% endif %} max-w-prose whitespace-pre-line text-center text-lg leading-relaxed text-muted">{{ profile.description | escape }}</p>
+    <nav class="mt-10 flex w-full flex-col items-stretch justify-center gap-3 sm:w-auto sm:flex-row sm:flex-wrap" aria-label="Secciones del currículum">
+        {% for chip in profile.chips %}
+        {% assign external = false %}
+        {% if chip.destination contains '://' %}{% assign external = true %}{% endif %}
+        <a class="inline-flex min-h-12 items-center justify-center gap-1 rounded-full bg-brand px-6 py-3 text-center text-base font-semibold leading-snug text-brand-on transition hover:bg-brand-hover active:scale-95" href="{% if external %}{{ chip.destination | escape }}{% else %}{{ chip.destination | relative_url }}{% endif %}" {% if external %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ chip.name | escape }}{% if external %}<span aria-hidden="true">↗</span><span class="sr-only">(se abre en otra pestaña)</span>{% endif %}</a>
+        {% endfor %}
+    </nav>
 </section>
 
-<nav class="mt-8 flex flex-wrap justify-center gap-3" aria-label="Secciones del currículum">
-    {% for chip in profile.chips %}
-    <a class="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 transition hover:bg-blue-200" href="{{ chip.destination | relative_url }}">{{ chip.name | escape }}</a>
-    {% endfor %}
-</nav>
-
 {% if profile.others.projects.size > 0 %}
-<section class="mt-8 rounded-2xl bg-white p-6 text-center shadow-md" aria-labelledby="projects-title">
-    <h2 id="projects-title" class="mb-4 text-2xl font-semibold">{{ profile.others.title | escape }}</h2>
-    <div class="flex flex-wrap justify-center gap-3">
+<section class="mt-6 rounded-[2rem] bg-surface px-6 py-8 text-center shadow-card sm:px-10" aria-labelledby="projects-title">
+    <h2 id="projects-title" class="mb-5 text-2xl font-bold tracking-tight">{{ profile.others.title | escape }}</h2>
+    <div class="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap">
         {% for project in profile.others.projects %}
-    {% assign project_destination = project.destination %}
-    {% if jekyll.environment == 'development' and project.destination contains '3d.aarontxu.com' %}
-    {% assign project_destination = 'http://127.0.0.1:4001/' %}
-    {% endif %}
-    <a class="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700 transition hover:bg-blue-200" href="{% if project_destination contains '://' %}{{ project_destination | escape }}{% else %}{{ project_destination | relative_url }}{% endif %}" {% if project_destination contains '://' %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ project.name | escape }}</a>
+        {% assign project_destination = project.destination %}
+        {% if jekyll.environment == 'development' and project.destination contains '3d.aarontxu.com' %}
+        {% assign project_destination = 'http://127.0.0.1:4001/' %}
+        {% endif %}
+        {% assign external = false %}
+        {% if project_destination contains '://' %}{% assign external = true %}{% endif %}
+        <a class="inline-flex min-h-12 items-center justify-center gap-1 rounded-full bg-accent px-6 py-3 text-center text-base font-semibold leading-snug text-[#1c1c1e] transition hover:brightness-95 active:scale-95" href="{% if external %}{{ project_destination | escape }}{% else %}{{ project_destination | relative_url }}{% endif %}" {% if external %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ project.name | escape }}{% if external %}<span aria-hidden="true">↗</span><span class="sr-only">(se abre en otra pestaña)</span>{% endif %}</a>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+{% assign contact = site.data.cv.contact %}
+{% if contact.elements.size > 0 %}
+<section class="mt-6 rounded-[2rem] bg-surface px-6 py-8 text-center shadow-card sm:px-10" aria-labelledby="contact-title">
+    <h2 id="contact-title" class="mb-5 text-2xl font-bold tracking-tight">{{ contact.title | escape }}</h2>
+    <div class="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:flex-wrap">
+        {% for item in contact.elements %}
+        {% assign external = true %}
+        {% if item.destination contains 'mailto:' %}{% assign external = false %}{% endif %}
+        <a class="inline-flex min-h-12 items-center justify-center gap-1 rounded-full bg-accent px-6 py-3 text-center text-base font-semibold leading-snug text-[#1c1c1e] transition hover:brightness-95 active:scale-95" href="{{ item.destination | escape }}" {% if external %}target="_blank" rel="noopener noreferrer"{% endif %}>{{ item.name | escape }}<span aria-hidden="true">↗</span><span class="sr-only">{% if external %}(se abre en otra pestaña){% else %}(abre la aplicación de correo){% endif %}</span></a>
         {% endfor %}
     </div>
 </section>

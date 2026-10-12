@@ -2,19 +2,16 @@
     "profile": {
         "name": "Aarón Granado",
         "image": "/img/my_image.jpg",
+        "headline": "Apps nativas para iPhone, iPad y Apple TV.",
         "description": "Hola, soy Aarón y vivo en Asturias.\n\nEstudié Desarrollo de Aplicaciones Multiplataforma y decidí enfocar mi carrera en iOS, aprendiendo Swift y Xcode con tutoriales y cursos online.\n\nComencé mi trayectoria profesional en Zaragoza como desarrollador iOS, trabajando en remoto al principio y luego presencialmente.\n\nHe participado en proyectos nativos de iOS y tvOS para GPVs, telecomunicaciones y VoD, algunos completamente en SwiftUI, tecnología que sigo perfeccionando a día de hoy.\n\nEn esta web puedes explorar mi experiencia laboral, ver mis proyectos personales, consultar mis titulaciones y contactarme.",
         "chips": [
             {
                 "name": "Experiencia",
-                "destination": "/main_pages/experience.html"
+                "destination": "/pages/experience.html"
             },
             {
                 "name": "Titulaciones",
-                "destination": "/main_pages/studies.html"
-            },
-            {
-                "name": "Contacto",
-                "destination": "/main_pages/contact.html"
+                "destination": "/pages/studies.html"
             }
         ],
         "others": {

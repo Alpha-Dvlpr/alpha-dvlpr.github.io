@@ -1,156 +1,143 @@
 {
   "communities": {
     "0": [
-      "cms",
-      "cms_github_pages",
-      "cms_pages_cms",
-      "pages",
-      "pages_cv",
-      "pages_cv_images"
+      "_layouts_default",
+      "_layouts_default_accessibility",
+      "_layouts_default_css_variables",
+      "_layouts_default_header",
+      "_layouts_default_person_schema",
+      "_layouts_default_scroll_top_button",
+      "_layouts_default_seo_meta",
+      "_layouts_default_tailwind_config",
+      "_layouts_default_theme_switcher",
+      "_layouts_default_translate_widget",
+      "tailwind_cdn"
     ],
     "1": [
-      "index",
-      "layouts_default",
-      "layouts_default_person_schema",
-      "layouts_default_translate_widget",
-      "main_pages_contact",
-      "main_pages_studies"
+      "pages_yml",
+      "pages_yml_contact",
+      "pages_yml_cv_content",
+      "pages_yml_cv_images_media",
+      "pages_yml_jobs",
+      "pages_yml_languages",
+      "pages_yml_profile",
+      "pages_yml_studies"
     ],
     "2": [
-      "cms_root_relative_image_paths",
-      "includes_job_card",
-      "includes_study_card",
-      "main_pages_experience"
+      "index",
+      "index_about_section",
+      "index_contact_section",
+      "index_dev_project_redirect",
+      "index_external_link_pattern",
+      "index_projects_section"
     ],
     "3": [
-      "config",
-      "config_jekyll_sitemap",
-      "robots"
+      "_config",
+      "_config_graphify_out_exclude",
+      "_config_ios_developer_profile",
+      "_config_jekyll_sitemap_plugin",
+      "_config_site_aaron_granado"
     ],
     "4": [
       "script",
+      "script_initializebacklink",
       "script_initializebacktotop",
+      "script_initializethemetoggle",
       "script_initializetranslation"
+    ],
+    "5": [
+      "cms",
+      "cms_github_pages",
+      "cms_pages_cms",
+      "cms_root_relative_image_paths"
+    ],
+    "6": [
+      "_includes_job_card_job_card"
+    ],
+    "7": [
+      "_includes_study_card_study_card"
+    ],
+    "8": [
+      "pages_experience"
+    ],
+    "9": [
+      "pages_studies"
+    ],
+    "10": [
+      "robots"
     ]
   },
   "cohesion": {
-    "0": 0.4,
-    "1": 0.4,
-    "2": 0.6666666666666666,
-    "3": 0.6666666666666666,
-    "4": 0.6666666666666666
+    "0": 0.2727272727272727,
+    "1": 0.35714285714285715,
+    "2": 0.4666666666666667,
+    "3": 0.4,
+    "4": 0.4,
+    "5": 0.5,
+    "6": 1.0,
+    "7": 1.0,
+    "8": 1.0,
+    "9": 1.0,
+    "10": 1.0
   },
   "gods": [
     {
-      "id": "layouts_default",
-      "label": "default layout",
-      "degree": 7
+      "id": "_layouts_default",
+      "label": "Default Jekyll Layout",
+      "degree": 10
     },
     {
-      "id": "pages",
-      "label": ".pages.yml (Pages CMS config)",
+      "id": "pages_yml_cv_content",
+      "label": "CV content definition (_data/cv.json)",
+      "degree": 6
+    },
+    {
+      "id": "pages_yml_cv_images_media",
+      "label": "cv_images media collection",
+      "degree": 4
+    },
+    {
+      "id": "_layouts_default_css_variables",
+      "label": "Light/Dark CSS Variables",
+      "degree": 3
+    },
+    {
+      "id": "_layouts_default_theme_switcher",
+      "label": "Theme Switcher (auto/light/dark)",
+      "degree": 3
+    },
+    {
+      "id": "_layouts_default_header",
+      "label": "Sticky Header (back link, title, theme and translate buttons)",
+      "degree": 3
+    },
+    {
+      "id": "_layouts_default_tailwind_config",
+      "label": "Tailwind Config (CSS-variable palette)",
+      "degree": 3
+    },
+    {
+      "id": "_config",
+      "label": "Jekyll site configuration (_config.yml)",
       "degree": 3
     },
     {
       "id": "cms",
-      "label": "CMS.md \u2013 Edici\u00f3n del contenido",
+      "label": "CMS.md – Edición del contenido",
       "degree": 3
     },
     {
-      "id": "cms_root_relative_image_paths",
-      "label": "Root-relative image paths with relative_url",
+      "id": "index",
+      "label": "Home page (index.html)",
       "degree": 3
-    },
-    {
-      "id": "includes_job_card",
-      "label": "job-card include",
-      "degree": 3
-    },
-    {
-      "id": "includes_study_card",
-      "label": "study-card include",
-      "degree": 3
-    },
-    {
-      "id": "pages_cv_images",
-      "label": "cv_images media (img/)",
-      "degree": 2
-    },
-    {
-      "id": "pages_cv",
-      "label": "CV content schema",
-      "degree": 2
-    },
-    {
-      "id": "cms_pages_cms",
-      "label": "Pages CMS",
-      "degree": 2
-    },
-    {
-      "id": "config",
-      "label": "_config.yml (Jekyll site config)",
-      "degree": 2
     }
   ],
-  "surprises": [
+  "surprises": [],
+  "questions": [
     {
-      "source": "default layout",
-      "target": "_config.yml (Jekyll site config)",
-      "source_files": [
-        "_layouts/default.html",
-        "_config.yml"
-      ],
-      "confidence": "INFERRED",
-      "relation": "references",
-      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories; bridges separate communities; peripheral node `_config.yml (Jekyll site config)` unexpectedly reaches hub `default layout`"
-    },
-    {
-      "source": "Experience page",
-      "target": "default layout",
-      "source_files": [
-        "main_pages/experience.html",
-        "_layouts/default.html"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "references",
-      "why": "connects across different repos/directories; bridges separate communities; peripheral node `Experience page` unexpectedly reaches hub `default layout`"
-    },
-    {
-      "source": "job-card include",
-      "target": "Root-relative image paths with relative_url",
-      "source_files": [
-        "_includes/job-card.html",
-        "CMS.md"
-      ],
-      "confidence": "INFERRED",
-      "relation": "implements",
-      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
-    },
-    {
-      "source": "study-card include",
-      "target": "Root-relative image paths with relative_url",
-      "source_files": [
-        "_includes/study-card.html",
-        "CMS.md"
-      ],
-      "confidence": "INFERRED",
-      "relation": "implements",
-      "why": "inferred connection - not explicitly stated in source; connects across different repos/directories"
-    },
-    {
-      "source": "index.html (home page)",
-      "target": "default layout",
-      "source_files": [
-        "index.html",
-        "_layouts/default.html"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "references",
-      "why": "connects across different repos/directories; peripheral node `index.html (home page)` unexpectedly reaches hub `default layout`"
+      "type": "isolated_nodes",
+      "question": "What connects `Person JSON-LD Schema`, `Scroll-to-Top Button`, `SEO / Open Graph Metadata` to the rest of the system?",
+      "why": "17 weakly-connected nodes found - possible documentation gaps or missing edges."
     }
-  ],
-  "tokens": {
-    "input": 38189,
-    "output": 5214
-  }
+  ]
 }

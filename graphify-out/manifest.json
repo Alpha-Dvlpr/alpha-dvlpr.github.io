@@ -70,5 +70,11 @@
     "seen": 1791835518.7288299,
     "ast_hash": "75a30d99a9a5ee92eaa0f9600af0b8bb",
     "semantic_hash": "75a30d99a9a5ee92eaa0f9600af0b8bb"
+  },
+  "404.html": {
+    "mtime": 1791992559.7691982,
+    "seen": 1791992586.7706199,
+    "ast_hash": "745aa6d3c7b49ae803813248beb77792",
+    "semantic_hash": ""
   }
 }

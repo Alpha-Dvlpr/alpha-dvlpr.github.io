@@ -1,7 +1,9 @@
-# Graph Report - alpha-dvlpr.github.io  (2026-10-12)
+# Graph Report - alpha-dvlpr.github.io  (2026-10-14)
 
 ## Corpus Check
-- cluster-only mode — file stats not available
+- 3 files · ~4,450 words
+- Verdict: corpus is large enough that graph structure adds value.
+- Unclassified: 5 file(s) not represented in the graph (top: (none) 5)
 
 ## Summary
 - 44 nodes · 43 edges · 11 communities (5 shown, 6 thin omitted)
@@ -9,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `97d542cd`
+- Built from commit: `9595176a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -29,9 +31,9 @@
 2. `CV content definition (_data/cv.json)` - 6 edges
 3. `cv_images media collection` - 4 edges
 4. `Light/Dark CSS Variables` - 3 edges
-5. `Theme Switcher (auto/light/dark)` - 3 edges
-6. `Sticky Header (back link, title, theme and translate buttons)` - 3 edges
-7. `Tailwind Config (CSS-variable palette)` - 3 edges
+5. `Sticky Header (back link, title, theme and translate buttons)` - 3 edges
+6. `Tailwind Config (CSS-variable palette)` - 3 edges
+7. `Theme Switcher (auto/light/dark)` - 3 edges
 8. `Jekyll site configuration (_config.yml)` - 3 edges
 9. `CMS.md – Edición del contenido` - 3 edges
 10. `Home page (index.html)` - 3 edges
@@ -43,7 +45,7 @@
 - None detected.
 
 ## Hyperedges (group relationships)
-- **Theming system (switcher, CSS variables, Tailwind config)** — _layouts_default_theme_switcher, _layouts_default_css_variables, _layouts_default_tailwind_config [EXTRACTED 0.90]
+- **Theming system (switcher, CSS variables, Tailwind config)** — alpha_dvlpr_github_io_layouts_default_theme_switcher, alpha_dvlpr_github_io_layouts_default_css_variables, alpha_dvlpr_github_io_layouts_default_tailwind_config [EXTRACTED 0.90]
 
 ## Communities (11 total, 6 thin omitted)
 
@@ -68,7 +70,7 @@ Cohesion: 0.50
 Nodes (4): CMS.md – Edición del contenido, GitHub Pages deployment (main branch), Pages CMS, Root-relative image paths with relative_url
 
 ## Knowledge Gaps
-- **17 isolated node(s):** `Person JSON-LD Schema`, `Scroll-to-Top Button`, `SEO / Open Graph Metadata`, `Accessibility Features (skip link, focus-visible, reduced motion)`, `Translation languages field group` (+12 more)
+- **17 isolated node(s):** `Person JSON-LD Schema`, `Scroll-to-Top Button`, `SEO / Open Graph Metadata`, `Accessibility Features (skip link, focus-visible, reduced motion)`, `Contact field group` (+12 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 22 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 

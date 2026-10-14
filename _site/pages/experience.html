@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="Trayectoria profesional de Aarón Granado como desarrollador iOS, con experiencia en Swift, UIKit y SwiftUI.">
+    <meta name="theme-color" content="#14130c">
+    <script>
+        // Tema: elección guardada (auto/claro/oscuro); en auto sigue al sistema y, si no puede leerse, oscuro.
+        (function () {
+            var root = document.documentElement;
+            var light = window.matchMedia ? window.matchMedia('(prefers-color-scheme: light)') : null;
+            var choice = function () { try { return localStorage.getItem('theme') || 'auto'; } catch (e) { return 'auto'; } };
+            window.applyTheme = function (value) {
+                var dark = value === 'dark' || (value !== 'light' && !(light && light.matches));
+                root.dataset.theme = dark ? 'dark' : 'light';
+                root.dataset.themeChoice = value;
+                root.style.colorScheme = root.dataset.theme;
+                document.querySelector('meta[name="theme-color"]').content = dark ? '#14130c' : '#fefcee';
+            };
+            window.applyTheme(choice());
+            if (light && light.addEventListener) light.addEventListener('change', function () { if (choice() === 'auto') window.applyTheme('auto'); });
+        })();
+    </script>
+    <title>Experiencia profesional | Aarón Granado</title>
+    <link rel="canonical" href="http://localhost:4002/pages/experience.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Aarón Granado">
+    <meta property="og:title" content="Experiencia profesional | Aarón Granado">
+    <meta property="og:description" content="Trayectoria profesional de Aarón Granado como desarrollador iOS, con experiencia en Swift, UIKit y SwiftUI.">
+    <meta property="og:url" content="http://localhost:4002/pages/experience.html">
+    <meta property="og:image" content="http://localhost:4002/img/my_image.jpg">
+    <meta name="twitter:card" content="summary">
+    <link rel="icon" type="image/png" href="/img/mini_icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/mini_icon.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        // Paleta global: azul = acciones, amarillo = acento. Los colores salen de las variables CSS de :root (claro y oscuro, abajo).
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', '"Segoe UI"', 'system-ui', 'sans-serif'],
+                        mono: ['Monaco', 'ui-monospace', '"SF Mono"', 'Menlo', 'monospace']
+                    },
+                    colors: {
+                        canvas: 'rgb(var(--canvas) / <alpha-value>)',
+                        surface: 'rgb(var(--surface) / <alpha-value>)',
+                        fill: 'rgb(var(--fill) / <alpha-value>)',
+                        ink: 'rgb(var(--ink) / <alpha-value>)',
+                        muted: 'rgb(var(--muted) / <alpha-value>)',
+                        line: 'rgb(var(--line) / <alpha-value>)',
+                        brand: {
+                            DEFAULT: 'rgb(var(--brand) / <alpha-value>)',
+                            hover: 'rgb(var(--brand-hover) / <alpha-value>)',
+                            text: 'rgb(var(--brand-text) / <alpha-value>)',
+                            on: 'rgb(var(--brand-on) / <alpha-value>)',
+                            tint: 'rgb(var(--brand-tint) / <alpha-value>)'
+                        },
+                        accent: {
+                            DEFAULT: 'rgb(var(--accent) / <alpha-value>)',
+                            text: 'rgb(var(--accent-text) / <alpha-value>)',
+                            tint: 'rgb(var(--accent-tint) / <alpha-value>)'
+                        },
+                        'grad-from': 'rgb(var(--grad-from) / <alpha-value>)',
+                        'grad-to': 'rgb(var(--grad-to) / <alpha-value>)'
+                    },
+                    boxShadow: {
+                        card: '0 1px 2px rgb(0 0 0 / .04), 0 8px 24px rgb(0 0 0 / .06)'
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        @font-face {
+            font-family: 'Monaco';
+            src: url('/fonts/Monaco.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        :root {
+            --canvas: 254 252 238;
+            --surface: 255 255 255;
+            --fill: 248 242 208;
+            --ink: 28 28 30;
+            --muted: 96 94 84;
+            --line: 232 224 184;
+            --brand: 37 99 235;
+            --brand-hover: 29 78 216;
+            --brand-text: 29 78 216;
+            --brand-on: 255 255 255;
+            --brand-tint: 219 234 254;
+            --accent: 250 204 21;
+            --accent-text: 133 77 14;
+            --accent-tint: 254 240 138;
+            --grad-from: 37 99 235;
+            --grad-to: 184 134 11;
+        }
+
+        :root[data-theme="dark"] {
+            --canvas: 20 19 12;
+            --surface: 33 31 21;
+            --fill: 50 47 30;
+            --ink: 247 247 242;
+            --muted: 178 174 156;
+            --line: 68 64 40;
+            --brand: 96 165 250;
+            --brand-hover: 147 197 253;
+            --brand-text: 147 197 253;
+            --brand-on: 10 20 40;
+            --brand-tint: 23 37 84;
+            --accent: 250 204 21;
+            --accent-text: 253 224 71;
+            --accent-tint: 70 56 8;
+            --grad-from: 96 165 250;
+            --grad-to: 250 204 21;
+        }
+
+        html { -webkit-text-size-adjust: 100%; }
+        body { -webkit-font-smoothing: antialiased; }
+        [hidden] { display: none !important; }
+        :focus-visible { outline: 3px solid rgb(var(--brand)); outline-offset: 2px; }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation: none !important;
+                transition: none !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+    
+</head>
+<body class="flex min-h-screen flex-col items-center bg-canvas font-sans text-ink">
+    <a class="sr-only rounded-full bg-surface px-4 py-3 text-ink focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60]" href="#main-content">Saltar al contenido</a>
+    <header class="sticky top-0 z-40 w-full border-b border-line bg-canvas/80 backdrop-blur-xl backdrop-saturate-150">
+        <div class="mx-auto grid w-full max-w-5xl grid-cols-[1fr_auto_1fr] items-center gap-2 px-[max(1rem,env(safe-area-inset-left))] py-2">
+            <div class="justify-self-start">
+                
+                <a id="back-link" href="/" class="-ml-2 flex min-h-11 items-center gap-0.5 rounded-full pl-1 pr-3 text-base font-medium text-brand-text transition hover:bg-fill" aria-label="Volver atrás" title="Atrás"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg><span class="hidden sm:inline">Atrás</span></a>
+                
+            </div>
+            <h1 class="line-clamp-2 min-w-0 max-w-[50vw] break-words text-center text-sm font-semibold leading-tight sm:max-w-md sm:text-base">Mi experiencia laboral</h1>
+            <div id="translate-container" class="relative flex items-center gap-2 justify-self-end">
+                <button id="theme-btn" type="button" class="grid h-11 w-11 shrink-0 place-items-center rounded-full bg-fill text-ink transition hover:bg-line" aria-label="Tema: automático" title="Tema: automático"><svg data-theme-icon="auto" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg><svg data-theme-icon="light" class="hidden h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg data-theme-icon="dark" class="hidden h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></button>
+                <button id="translate-btn" type="button" class="flex h-11 items-center gap-2 rounded-full bg-fill px-3 text-sm font-medium text-ink transition hover:bg-line sm:px-4" aria-haspopup="true" aria-expanded="false" title="Traducir página"><svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><span class="hidden sm:inline">Traducir</span></button>
+                <div id="google_translate_element" class="absolute right-0 top-full z-50 mt-2 hidden rounded-2xl border border-line bg-surface p-3 shadow-card" aria-label="Seleccionar idioma"></div>
+            </div>
+        </div>
+    </header>
+    <main id="main-content" class="w-full max-w-5xl px-4 py-8 sm:py-12 flex flex-col gap-6">
+        
+<article class="flex flex-col overflow-hidden rounded-3xl bg-surface shadow-card md:flex-row">
+    <div class="flex-shrink-0 p-4 md:w-1/3">
+        <div class="flex aspect-square w-full items-center justify-center overflow-hidden rounded-2xl bg-white p-3 ring-1 ring-line">
+            <img class="max-h-full max-w-full object-contain" src="/img/alten_spain.jpeg" alt="Alten Spain" width="320" height="320" loading="lazy" decoding="async">
+        </div>
+    </div>
+    <div class="flex min-w-0 flex-col justify-center p-6 md:w-2/3 md:pl-2">
+        <h2 class="text-xl font-bold tracking-tight">Desarrollador iOS</h2>
+        <p class="mt-1 text-sm text-muted">Alten Spain · Mayo 2025 - Actualidad</p>
+        <p class="mt-3 whitespace-pre-line leading-relaxed">Desarrollo de aplicaciones iOS para cliente del sector medios de comunicación, trabajando en app nativa con millones de usuarios activos.</p>
+        
+        <section class="mt-5 rounded-2xl bg-fill p-5" aria-label="Responsabilidades">
+            <h3 class="mb-3 text-base font-semibold">Responsabilidades</h3>
+            <ul class="list-outside list-disc space-y-2 pl-5 marker:text-accent-text">
+                <li class="leading-relaxed text-muted">Desarrollo y mantenimiento de features en aplicación de alto tráfico con UIKit</li><li class="leading-relaxed text-muted">Implementación de nuevas funcionalidades siguiendo especificaciones de diseño en Figma</li><li class="leading-relaxed text-muted">Resolución de bugs críticos y optimización de rendimiento en vistas complejas</li><li class="leading-relaxed text-muted">Colaboración con equipos backend y QA en sprints ágiles mediante JIRA</li><li class="leading-relaxed text-muted">Participación en code reviews para mantener estándares de calidad del código</li><li class="leading-relaxed text-muted">Resolución de Memory Leaks que causan crashes críticos en la aplicación</li>
+            </ul>
+        </section>
+        
+        
+        <ul class="mt-4 flex flex-wrap gap-2" aria-label="Tecnologías">
+            <li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">Swift</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">UIKit</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">Git</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">Figma</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">JIRA</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">CI/CD</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">Charles Proxy</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">App Store Connect</li>
+        </ul>
+        
+    </div>
+</article>
+
+
+<article class="flex flex-col overflow-hidden rounded-3xl bg-surface shadow-card md:flex-row">
+    <div class="flex-shrink-0 p-4 md:w-1/3">
+        <div class="flex aspect-square w-full items-center justify-center overflow-hidden rounded-2xl bg-white p-3 ring-1 ring-line">
+            <img class="max-h-full max-w-full object-contain" src="/img/vipirsa.png" alt="Vipirsa" width="320" height="320" loading="lazy" decoding="async">
+        </div>
+    </div>
+    <div class="flex min-w-0 flex-col justify-center p-6 md:w-2/3 md:pl-2">
+        <h2 class="text-xl font-bold tracking-tight">Desarrollador iOS</h2>
+        <p class="mt-1 text-sm text-muted">Vipirsa · Diciembre 2024 - Abril 2025</p>
+        <p class="mt-3 whitespace-pre-line leading-relaxed">Rediseño de aplicación iOS en proyecto bancario de duración cerrada, con enfoque en entregas rápidas y calidad de código.</p>
+        
+        <section class="mt-5 rounded-2xl bg-fill p-5" aria-label="Contribuciones">
+            <h3 class="mb-3 text-base font-semibold">Contribuciones</h3>
+            <ul class="list-outside list-disc space-y-2 pl-5 marker:text-accent-text">
+                <li class="leading-relaxed text-muted">Implementé features críticas cumpliendo deadlines ajustados sin comprometer estabilidad</li><li class="leading-relaxed text-muted">Colaboré estrechamente con diseñadores usando Figma para implementación pixel-perfect</li><li class="leading-relaxed text-muted">Migré componentes críticos relacionados con la seguridad de la aplicación: códigos OTP, autorización con FaceID / TouchID</li><li class="leading-relaxed text-muted">Colaboré en la gestión y organización de las tareas reduciendo el tiempo de asignación de las mismas y su tiempo de resolución</li>
+            </ul>
+        </section>
+        
+        
+        <ul class="mt-4 flex flex-wrap gap-2" aria-label="Tecnologías">
+            <li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">Swift</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">SwiftUI</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">MVVM</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">Git</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">CI/CD</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">JIRA</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">Figma</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">App Store Connect</li>
+        </ul>
+        
+    </div>
+</article>
+
+
+<article class="flex flex-col overflow-hidden rounded-3xl bg-surface shadow-card md:flex-row">
+    <div class="flex-shrink-0 p-4 md:w-1/3">
+        <div class="flex aspect-square w-full items-center justify-center overflow-hidden rounded-2xl bg-white p-3 ring-1 ring-line">
+            <img class="max-h-full max-w-full object-contain" src="/img/break-time.jpg" alt="Descanso profesional" width="320" height="320" loading="lazy" decoding="async">
+        </div>
+    </div>
+    <div class="flex min-w-0 flex-col justify-center p-6 md:w-2/3 md:pl-2">
+        <h2 class="text-xl font-bold tracking-tight">Descanso profesional</h2>
+        <p class="mt-1 text-sm text-muted">Septiembre 2024 - Diciembre 2024</p>
+        <p class="mt-3 whitespace-pre-line leading-relaxed">Período de formación y búsqueda de nuevos retos profesionales.</p>
+        
+        
+    </div>
+</article>
+
+
+<article class="flex flex-col overflow-hidden rounded-3xl bg-surface shadow-card md:flex-row">
+    <div class="flex-shrink-0 p-4 md:w-1/3">
+        <div class="flex aspect-square w-full items-center justify-center overflow-hidden rounded-2xl bg-white p-3 ring-1 ring-line">
+            <img class="max-h-full max-w-full object-contain" src="/img/knowmad_mood.jpg" alt="Knowmadd Mood" width="320" height="320" loading="lazy" decoding="async">
+        </div>
+    </div>
+    <div class="flex min-w-0 flex-col justify-center p-6 md:w-2/3 md:pl-2">
+        <h2 class="text-xl font-bold tracking-tight">Desarrollador iOS</h2>
+        <p class="mt-1 text-sm text-muted">Knowmadd Mood · Abril 2023 - Septiembre 2024</p>
+        <p class="mt-3 whitespace-pre-line leading-relaxed">Desarrollos nuevos y mantenimiento de los existentes con Swift, UIKit y Storyboards.</p>
+        
+        <section class="mt-5 rounded-2xl bg-fill p-5" aria-label="Logros destacados">
+            <h3 class="mb-3 text-base font-semibold">Logros destacados</h3>
+            <ul class="list-outside list-disc space-y-2 pl-5 marker:text-accent-text">
+                <li class="leading-relaxed text-muted">Supervisé code reviews para un equipo de 4-6 desarrolladores, reduciendo incidencias en QA en más del 50%</li><li class="leading-relaxed text-muted">Creación de componentes SwiftUI integrados en código UIKit (widget en la pantalla de inicio para mostrar novedades)</li><li class="leading-relaxed text-muted">Implementé mejoras de rendimiento que optimizaron tiempos de carga en un 30-40%</li>
+            </ul>
+        </section>
+        
+        
+        <ul class="mt-4 flex flex-wrap gap-2" aria-label="Tecnologías">
+            <li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">Git</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">GitLab</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">Merge Requests</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">Figma</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">AppStore Connect</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">TestFlight</li>
+        </ul>
+        
+    </div>
+</article>
+
+
+<article class="flex flex-col overflow-hidden rounded-3xl bg-surface shadow-card md:flex-row">
+    <div class="flex-shrink-0 p-4 md:w-1/3">
+        <div class="flex aspect-square w-full items-center justify-center overflow-hidden rounded-2xl bg-white p-3 ring-1 ring-line">
+            <img class="max-h-full max-w-full object-contain" src="/img/telynet.jpg" alt="Telynet" width="320" height="320" loading="lazy" decoding="async">
+        </div>
+    </div>
+    <div class="flex min-w-0 flex-col justify-center p-6 md:w-2/3 md:pl-2">
+        <h2 class="text-xl font-bold tracking-tight">Desarrollador iOS</h2>
+        <p class="mt-1 text-sm text-muted">Telynet · Mayo 2022 - Abril 2023</p>
+        <p class="mt-3 whitespace-pre-line leading-relaxed">Desarrollos desde cero para diversos clientes en SwiftUI.</p>
+        
+        
+        <ul class="mt-4 flex flex-wrap gap-2" aria-label="Tecnologías">
+            <li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">Subversion</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">SQLite</li>
+        </ul>
+        
+    </div>
+</article>
+
+
+<article class="flex flex-col overflow-hidden rounded-3xl bg-surface shadow-card md:flex-row">
+    <div class="flex-shrink-0 p-4 md:w-1/3">
+        <div class="flex aspect-square w-full items-center justify-center overflow-hidden rounded-2xl bg-white p-3 ring-1 ring-line">
+            <img class="max-h-full max-w-full object-contain" src="/img/minsait.png" alt="Minsait (Indra)" width="320" height="320" loading="lazy" decoding="async">
+        </div>
+    </div>
+    <div class="flex min-w-0 flex-col justify-center p-6 md:w-2/3 md:pl-2">
+        <h2 class="text-xl font-bold tracking-tight">Desarrollador iOS</h2>
+        <p class="mt-1 text-sm text-muted">Minsait (Indra) · Junio 2021 - Abril 2022</p>
+        <p class="mt-3 whitespace-pre-line leading-relaxed">Desarrollos nuevos y mantenimiento de los existentes con Swift, UIKit y Storyboards.</p>
+        
+        
+        <ul class="mt-4 flex flex-wrap gap-2" aria-label="Tecnologías">
+            <li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">Git</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">Jenkins</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">Merge Requests</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">Zeplin</li>
+        </ul>
+        
+    </div>
+</article>
+
+
+<article class="flex flex-col overflow-hidden rounded-3xl bg-surface shadow-card md:flex-row">
+    <div class="flex-shrink-0 p-4 md:w-1/3">
+        <div class="flex aspect-square w-full items-center justify-center overflow-hidden rounded-2xl bg-white p-3 ring-1 ring-line">
+            <img class="max-h-full max-w-full object-contain" src="/img/zimaltec.jpg" alt="Zimaltec Soluciones" width="320" height="320" loading="lazy" decoding="async">
+        </div>
+    </div>
+    <div class="flex min-w-0 flex-col justify-center p-6 md:w-2/3 md:pl-2">
+        <h2 class="text-xl font-bold tracking-tight">Desarrollador iOS</h2>
+        <p class="mt-1 text-sm text-muted">Zimaltec Soluciones · Junio 2020 - Junio 2021</p>
+        <p class="mt-3 whitespace-pre-line leading-relaxed">Desarrollos nuevos y mantenimiento de los existentes con Swift, UIKit y Storyboards.</p>
+        
+        
+        <ul class="mt-4 flex flex-wrap gap-2" aria-label="Tecnologías">
+            <li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">Git</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">Merge Requests</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">Realm Database</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">AppStore Connect</li><li class="rounded-full bg-brand-tint px-3 py-1.5 font-mono text-xs font-medium text-brand-text">TestFlight</li>
+        </ul>
+        
+    </div>
+</article>
+
+
+
+    </main>
+    <button id="scrollTopBtn" type="button" class="pointer-events-none fixed bottom-[max(1.5rem,env(safe-area-inset-bottom))] right-4 z-50 flex h-11 items-center gap-1 rounded-full bg-brand px-5 font-semibold text-brand-on opacity-0 shadow-lg transition hover:bg-brand-hover sm:right-6" aria-label="Volver arriba" inert><span aria-hidden="true">↑</span> Arriba</button>
+    <footer class="mt-auto w-full border-t border-line p-6 text-center text-sm text-muted">© 2026 Aarón Granado</footer>
+    <script type="application/json" id="translate-languages">{"es":"Español","en":"English","fr":"Français","it":"Italiano","de":"Deutsch","pt":"Português"}</script>
+    <script defer src="/script.js"></script>
+</body>
+</html>
